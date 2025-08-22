@@ -1,0 +1,107 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x1564
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd24
+load:0x403cb700,len:0x2ed4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 21 2025 13:54:20[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 ota_0            OTA app          00 10 00210000 00200000[0m
+[0;32mI (85) boot:  4 ota_1            OTA app          00 11 00410000 00200000[0m
+[0;32mI (91) boot:  5 storage          Unknown data     01 83 00610000 00100000[0m
+[0;32mI (98) boot:  6 spiffs           Unknown data     01 82 00710000 00400000[0m
+[0;32mI (104) boot:  7 userdata         Unknown data     01 84 00b10000 00100000[0m
+[0;32mI (111) boot:  8 reserved         unknown          40 01 00c10000 003f0000[0m
+[0;32mI (118) boot: End of partition table[0m
+[0;32mI (121) esp_image: segment 0: paddr=00010020 vaddr=3c070020 size=18b8ch (101260) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=00028bb4 vaddr=3fc9c900 size=04078h ( 16504) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0002cc34 vaddr=40374000 size=033e4h ( 13284) load[0m
+[0;32mI (153) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=60fc4h (397252) map[0m
+[0;32mI (228) esp_image: segment 4: paddr=00090fec vaddr=403773e4 size=154d8h ( 87256) load[0m
+[0;32mI (247) esp_image: segment 5: paddr=000a64cc vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (257) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (257) boot: Disabling RNG early entropy source...[0m
+[0;32mI (267) cpu_start: Multicore app[0m
+[0;32mI (276) cpu_start: Pro cpu start user code[0m
+[0;32mI (276) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (276) app_init: Application information:[0m
+[0;32mI (276) app_init: Project name:     wifi_station[0m
+[0;32mI (280) app_init: App version:      v5.4.2-dirty[0m
+[0;32mI (285) app_init: Compile time:     Aug 21 2025 13:51:01[0m
+[0;32mI (290) app_init: ELF file SHA256:  a1b032ea1...[0m
+[0;32mI (294) app_init: ESP-IDF:          v5.4.2-dirty[0m
+[0;32mI (298) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (302) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (306) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (310) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (316) heap_init: At 3FCA2F58 len 000467B8 (281 KiB): RAM[0m
+[0;32mI (321) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (327) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (332) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (338) spi_flash: detected chip: generic[0m
+[0;32mI (341) spi_flash: flash io: dio[0m
+[0;33mW (344) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (354) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (360) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (366) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (387) coexist: coexist rom version e7ae62f[0m
+[0;32mI (388) main_task: Started on CPU0[0m
+[0;32mI (398) main_task: Calling app_main()[0m
+[0;32mI (408) uart: queue free spaces: 30[0m
+[0;33mW (418) I2C_CHIPSET: I2C op fail (addr=0x40, try=1/3): ESP_FAIL[0m
+[0;33mW (418) I2C_CHIPSET: I2C op fail (addr=0x40, try=2/3): ESP_FAIL[0m
+[0;33mW (418) I2C_CHIPSET: I2C op fail (addr=0x40, try=3/3): ESP_FAIL[0m
+[0;33mW (418) I2C_CHIPSET: I2C op fail (addr=0x51, try=1/3): ESP_FAIL[0m
+[0;33mW (428) I2C_CHIPSET: I2C op fail (addr=0x51, try=2/3): ESP_FAIL[0m
+[0;33mW (428) I2C_CHIPSET: I2C op fail (addr=0x51, try=3/3): ESP_FAIL[0m
+[0;33mW (438) I2C_CHIPSET: I2C op fail (addr=0x40, try=1/3): ESP_FAIL[0m
+[0;33mW (448) I2C_CHIPSET: I2C op fail (addr=0x40, try=2/3): ESP_FAIL[0m
+[0;33mW (448) I2C_CHIPSET: I2C op fail (addr=0x40, try=3/3): ESP_FAIL[0m
+[0;33mW (458) I2C_CHIPSET: I2C op fail (addr=0x51, try=1/3): ESP_FAIL[0m
+[0;33mW (458) I2C_CHIPSET: I2C op fail (addr=0x51, try=2/3): ESP_FAIL[0m
+[0;33mW (468) I2C_CHIPSET: I2C op fail (addr=0x51, try=3/3): ESP_FAIL[0m
+[0;32mI (478) ADC_TASK: ADC calib: ref_avg_raw=18.0 → volt_per_count=0.068056 V/LSB[0m
+[0;32mI (478) BLE: NVS NS 'ioo_cfg' not found yet.[0m
+[0;32mI (478) BLE_INIT: BT controller compile version [6cfabcd][0m
+[0;32mI (488) BLE_LOG: Succeeded to initialize upper layer task log![0m
+[0;32mI (498) gpio: GPIO[3]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (498) BLE_LOG: Succeeded to initialize timestamp synchronizer![0m
+[0;32mI (508) BLE_LOG: Succeeded to initialize BLE log SPI output interface![0m
+[0;32mI (518) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (518) BLE_INIT: Bluetooth MAC: 30:ed:a0:bd:57:5e[0m
+[0;32mI (528) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (568) BLE: nimble host task start[0m
+[0;32mI (568) BLE: reg svc 0x1800 handle=1[0m
+[0;32mI (568) BLE: reg chr 0x2a00 def=2 val=3[0m
+[0;32mI (568) BLE: reg chr 0x2a01 def=4 val=5[0m
+[0;32mI (568) BLE: reg svc 0x1801 handle=6[0m
+[0;32mI (578) BLE: reg chr 0x2a05 def=7 val=8[0m
+[0;32mI (578) BLE: reg chr 0x2b3a def=10 val=11[0m
+[0;32mI (578) BLE: reg chr 0x2b29 def=12 val=13[0m
+[0;32mI (588) BLE: reg svc 0100bc9a-7856-3412-f0de-bc9a78563412 handle=14[0m
+[0;32mI (588) BLE: reg chr 00002211-eedd-ccbb-aa99-887766554433 def=15 val=16[0m
+[0;32mI (598) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (608) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (608) NimBLE: disc_mode=2[0m
+[0;32mI (608) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (618) NimBLE: [0m
+
+[0;32mI (618) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (568) main_task: Returned from app_main()[0m

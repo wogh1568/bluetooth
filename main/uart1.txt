@@ -1,0 +1,368 @@
+#include "uart1.h"
+#include <string.h>
+#include <stdlib.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/queue.h"
+#include "freertos/semphr.h"
+#include "driver/uart.h"
+#include "driver/gpio.h"
+#include "esp_log.h"
+
+#include "esp_heap_caps.h"  // heap_caps_malloc
+
+
+#define TAG "UART1"
+
+// 핀/속도
+#define UART_PORT          UART_NUM_1
+#define UART_TXD_PIN       (GPIO_NUM_17)
+#define UART_RXD_PIN       (GPIO_NUM_18)
+#define UART_BAUD          (460800)
+
+// 프로토콜 상수
+#define STX                0x02
+#define ETX                0x03
+#define DEV_TYPE_TX        0xA5   // ESP32->STM32
+#define DEV_TYPE_RX        0xA6   // STM32->ESP32
+#define CMD1_REQ           'S'    // 요청 시 대문자 'S'
+#define CMD1_RSP           's'    // 응답은 소문자 's'
+
+// 버퍼 크기(필요 시 늘리세요)
+#define UART_RX_BUF_SIZE   (4096)
+#define UART_TX_BUF_SIZE   (4096)
+#define UART_EVT_QUEUE_LEN (20)
+#define UART_MAX_PAYLOAD   (2048) // 파워정보가 크다면 4K로 늘리세요
+
+
+static void uart1_event_loop(void);      // 기존 수신 이벤트 루프
+static void uart1_evt_task(void *arg);   // FreeRTOS 태스크 엔트리
+static void uart1_evt_task(void *arg)
+{
+    (void)arg;
+    uart1_event_loop();      // 블로킹 루프
+    vTaskDelete(NULL);       // 루프가 끝나면 스스로 삭제
+}
+
+
+
+// 전역(수신 결과)
+volatile _TPM_Info       g_tpm_info;
+volatile _TPM_Power_Info g_tpm_power_info;
+volatile _ADC_Sensing    g_volt_curr_adc;
+
+// 내부
+static QueueHandle_t s_uart_evtq = NULL;
+static SemaphoreHandle_t s_tx_mutex = NULL;
+
+// 수신 프레임 큐 (파싱 완료 프레임 전달용)
+typedef struct {
+    uint8_t  device_type;
+    uint8_t  cmd1;
+    uint8_t  cmd2;
+    uint32_t target_id;       // 수신 프레임 내 target_id
+    uint16_t payload_len;
+    //uint8_t  payload[UART_MAX_PAYLOAD];
+    uint8_t *payload;    // <-- PSRAM에 할당한 버퍼 포인터만 전달
+} rx_frame_t;
+
+static QueueHandle_t s_rx_frame_q = NULL;
+
+// ---------- 유틸 ----------
+static inline uint8_t addsum_bytes(const uint8_t *d, size_t n)
+{
+    uint8_t s = 0;
+    for (size_t i = 0; i < n; ++i) s += d[i];
+    return s;
+}
+
+// ---------- 송신 ----------
+bool uart1_send_frame(uint32_t target_id, uint8_t cmd1, uint8_t cmd2,
+                      const void *payload, uint16_t payload_len)
+{
+    if (payload_len > UART_MAX_PAYLOAD) {
+        ESP_LOGE(TAG, "payload too large: %u", payload_len);
+        return false;
+    }
+
+    uint8_t *buf = malloc(payload_len + 12);
+    if (!buf) return false;
+
+    size_t i = 0;
+    buf[i++] = STX;                   // [0]
+    buf[i++] = DEV_TYPE_TX;           // [1] device type 0xA5
+    buf[i++] = (target_id >> 24) & 0xFF; // [2]
+    buf[i++] = (target_id >> 16) & 0xFF; // [3]
+    buf[i++] = (target_id >> 8)  & 0xFF; // [4]
+    buf[i++] = (target_id >> 0)  & 0xFF; // [5]
+    buf[i++] = cmd1;                  // [6]
+    buf[i++] = cmd2;                  // [7]
+    buf[i++] = (payload_len >> 8) & 0xFF;  // [8]
+    buf[i++] = (payload_len >> 0) & 0xFF;  // [9]
+
+    if (payload_len && payload) {
+        memcpy(&buf[i], payload, payload_len);
+    }
+    i += payload_len;
+
+    // STM32 예제에 맞춰 chksum은 [0..(9+payload_len)] 합
+    uint8_t chksum = addsum_bytes(buf, 10 + payload_len);
+    buf[i++] = chksum;                // [10+payload]
+    buf[i++] = ETX;                   // [11+payload]
+
+    // 송신
+    if (s_tx_mutex) xSemaphoreTake(s_tx_mutex, portMAX_DELAY);
+    int w = uart_write_bytes(UART_PORT, (const char *)buf, i);
+    uart_wait_tx_done(UART_PORT, pdMS_TO_TICKS(100));
+    if (s_tx_mutex) xSemaphoreGive(s_tx_mutex);
+
+    free(buf);
+    return (w == (int)i);
+}
+
+// ---------- 수신 파서 ----------
+typedef enum {
+    ST_WAIT_STX = 0,
+    ST_FIXED,         // device(1)+tid4+cmd1+cmd2+len2
+    ST_PAYLOAD,
+    ST_CHKSUM,
+    ST_WAIT_ETX
+} rx_state_t;
+
+static void uart1_rx_fsm_run(const uint8_t *data, size_t len)
+{
+    static rx_state_t st = ST_WAIT_STX;
+    static uint8_t  dev = 0, cmd1 = 0, cmd2 = 0;
+    static uint8_t  tid[4];
+    static uint16_t pay_len = 0, pay_pos = 0;
+    static uint8_t  payload[UART_MAX_PAYLOAD];
+    static uint8_t  sum_buf[10 + UART_MAX_PAYLOAD]; // STX~LEN~PAYLOAD까지 합산용
+    static size_t   sum_pos = 0; // sum_buf 채운 길이(체크섬 계산 범위)
+
+    static uint8_t *s_paybuf = NULL;
+    static uint16_t s_paycap = 0, s_paypos = 0;
+
+
+    for (size_t i = 0; i < len; ++i) {
+        uint8_t b = data[i];
+
+        switch (st) {
+        case ST_WAIT_STX:
+            if (b == STX) {
+                st = ST_FIXED;
+                sum_pos = 0;
+                sum_buf[sum_pos++] = b; // STX 포함 (STM32 코드가 STX 포함하여 합산)
+            }
+            break;
+
+        case ST_FIXED:
+            // 순서: device, tid[0..3], cmd1, cmd2, len_hi, len_lo  => 총 1+4+1+1+2 = 9바이트
+            if (sum_pos < 1 + 9) {
+                sum_buf[sum_pos++] = b;
+                size_t k = sum_pos - 1; // STX 이후 인덱스
+                if (k == 1) dev = b;
+                else if (k >= 2 && k <= 5) tid[k-2] = b;
+                else if (k == 6) cmd1 = b;
+                else if (k == 7) cmd2 = b;
+                else if (k == 8) pay_len = ((uint16_t)b) << 8;          // len_hi
+                else if (k == 9) {
+                    pay_len |= b;                                       // len_lo
+                    if (pay_len > UART_MAX_PAYLOAD) {
+                        // 과도 길이 -> 리셋
+                        st = ST_WAIT_STX;
+                        break;
+                    }
+                    pay_pos = 0;
+                    if (pay_len == 0) {
+                        st = ST_CHKSUM;
+                    } else {
+                        st = ST_PAYLOAD;
+                    }
+                }
+            }
+            break;
+
+        case ST_PAYLOAD:
+            payload[pay_pos++] = b;
+            sum_buf[sum_pos++] = b;
+            if (pay_pos >= pay_len) {
+                st = ST_CHKSUM;
+            }
+            break;
+
+        case ST_CHKSUM: {
+            uint8_t calc = addsum_bytes(sum_buf, 10 + pay_len); // STX~LEN~PAYLOAD
+            if (calc != b) {
+                // 체크섬 불일치 -> 프레임 폐기
+                st = ST_WAIT_STX;
+                break;
+            }
+            st = ST_WAIT_ETX;
+            break;
+        }
+
+        case ST_WAIT_ETX:
+            if (b == ETX) {
+                // 완성 프레임 전달
+                rx_frame_t frm = {0};
+                frm.device_type = dev;
+                frm.cmd1 = cmd1;
+                frm.cmd2 = cmd2;
+                frm.payload_len = pay_len;
+                frm.target_id = (tid[0] << 24) | (tid[1] << 16) | (tid[2] << 8) | tid[3];
+                if (pay_len) memcpy(frm.payload, payload, pay_len);
+                xQueueSend(s_rx_frame_q, &frm, 0);
+            }
+            st = ST_WAIT_STX;
+            break;
+        }
+    }
+}
+
+// ---------- UART 이벤트 루프(Task 내부) ----------
+static void uart1_event_loop(void)
+{
+    uart_event_t evt;
+    uint8_t *rb = (uint8_t *) malloc(UART_RX_BUF_SIZE);
+    if (!rb) return;
+
+    while (1) {
+        if (xQueueReceive(s_uart_evtq, &evt, portMAX_DELAY)) {
+            if (evt.type == UART_DATA && evt.size > 0) {
+                int r = uart_read_bytes(UART_PORT, rb, evt.size, pdMS_TO_TICKS(20));
+                if (r > 0) {
+                    uart1_rx_fsm_run(rb, r);
+                }
+            } else if (evt.type == UART_FIFO_OVF || evt.type == UART_BUFFER_FULL) {
+                ESP_LOGW(TAG, "RX overflow (%d)", evt.type);
+                uart_flush_input(UART_PORT);
+                xQueueReset(s_uart_evtq);
+            }
+        }
+    }
+}
+
+// ---------- 공개 API ----------
+void uart1_init(void)
+{
+    // 드라이버
+    uart_config_t cfg = {
+        .baud_rate = UART_BAUD,
+        .data_bits = UART_DATA_8_BITS,
+        .parity    = UART_PARITY_DISABLE,
+        .stop_bits = UART_STOP_BITS_1,
+        .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
+        .source_clk = UART_SCLK_APB,
+    };
+    ESP_ERROR_CHECK(uart_driver_install(UART_PORT, UART_RX_BUF_SIZE, UART_TX_BUF_SIZE, UART_EVT_QUEUE_LEN, &s_uart_evtq, 0));
+    ESP_ERROR_CHECK(uart_param_config(UART_PORT, &cfg));
+    ESP_ERROR_CHECK(uart_set_pin(UART_PORT, UART_TXD_PIN, UART_RXD_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
+
+    s_tx_mutex = xSemaphoreCreateMutex();
+    s_rx_frame_q = xQueueCreate(4, sizeof(rx_frame_t));
+
+    // 수신 이벤트 루프를 별도 작은 태스크로 분리
+    //xTaskCreatePinnedToCore(
+    //    [](void *p){ uart1_event_loop(); vTaskDelete(NULL); },  // 람다 형태(gnu 확장). 안되면 별도 static 함수로 바꾸세요.
+    //    "uart1_evt", 4096, NULL, 10, NULL, tskNO_AFFINITY
+    //);
+
+    xTaskCreatePinnedToCore(
+        uart1_evt_task,          // ← 함수 포인터
+        "uart1_evt",
+        4096,                    // 스택
+        NULL,                    // 파라미터
+        10,                      // 우선순위
+        NULL,                    // 핸들
+        tskNO_AFFINITY           // 코어 고정 없음
+    );
+
+
+}
+
+// 요청/응답 (blocking)
+bool uart1_request_info(uint32_t target_id, uint8_t cmd2, uint32_t timeout_ms)
+{
+    // 송신: cmd1='S', cmd2=0x00 or 0x01, payload 없음
+    if (!uart1_send_frame(target_id, CMD1_REQ, cmd2, NULL, 0)) {
+        ESP_LOGE(TAG, "send failed");
+        return false;
+    }
+
+    // 응답 대기: device=0xA6, cmd1='s', (cmd2는 보통 요청과 동일하다고 가정)
+    rx_frame_t frm;
+    uint32_t t_end = xTaskGetTickCount() + pdMS_TO_TICKS(timeout_ms);
+
+    while (xTaskGetTickCount() < t_end) {
+        if (xQueueReceive(s_rx_frame_q, &frm, pdMS_TO_TICKS(50)) == pdTRUE) {
+            if (frm.device_type == DEV_TYPE_RX && frm.cmd1 == CMD1_RSP) {
+                // 어떤 데이터인지 구분: cmd2 또는 payload_len으로 판단
+                if (cmd2 == 0x00) {
+                    if (frm.payload_len <= sizeof(_TPM_Info)) {
+                        memcpy((void*)&g_tpm_info, frm.payload, frm.payload_len);
+                        return true;
+                    }
+                } else if (cmd2 == 0x01) {
+                    if (frm.payload_len <= sizeof(_TPM_Power_Info)) {
+                        memcpy((void*)&g_tpm_power_info, frm.payload, frm.payload_len);
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    ESP_LOGE(TAG, "response timeout (cmd2=0x%02X)", cmd2);
+    return false;
+}
+
+// UART 전용 상위 Task (데모: 0x00,0x01 요청 후 로그 출력)
+void uart1_task(void *arg)
+{
+    const uint32_t TARGET_ID = 0x11223344; // 예시
+    vTaskDelay(pdMS_TO_TICKS(500)); // 초기 안정화
+
+    for(;;){
+        // 1) TPM_Info 요청
+        if (uart1_request_info(TARGET_ID, 0x00, 2000)) {
+            const _TPM_Info *p = (const _TPM_Info*)&g_tpm_info;
+            ESP_LOGI(TAG, "[TPM_Info] sn=%.8s hw=%d sw=%d ct_ratio=%d",
+                    p->sn, p->hw_ver, p->sw_ver, p->ct_ratio);
+        } else {
+            ESP_LOGE(TAG, "TPM_Info request failed");
+        }
+        vTaskDelay(pdMS_TO_TICKS(100));
+
+        // 2) TPM_Power_Info 요청
+        if (uart1_request_info(TARGET_ID, 0x01, 3000)) {
+            const _TPM_Power_Info *q = (const _TPM_Power_Info*)&g_tpm_power_info;
+            ESP_LOGI(TAG, "[TPM_Power] state=%d run_min=%d bat=%d L1Vrms=%.4f L1Arms=%.3f PF1=%.3f",
+                    q->state, q->run_time, q->bat_volt, q->L1V_rms, q->L1A_rms, q->L1_PowerFactor);
+            // 필요하면 나머지도 추가 출력
+        } else {
+            ESP_LOGE(TAG, "TPM_Power_Info request failed");
+        }
+        vTaskDelay(pdMS_TO_TICKS(100));
+
+        // 3) adc raw data 요청
+        if (uart1_request_info(TARGET_ID, 0x02, 3000)) {
+            const _ADC_Sensing *q = (const _ADC_Sensing*)&g_volt_curr_adc;
+            ESP_LOGI(TAG, "[TPM_Power] adc-VL1=%d", q->period_buf_VL1[0] );
+            // 필요하면 나머지도 추가 출력
+        } else {
+            ESP_LOGE(TAG, "ADC_Sensing request failed");
+        }
+        vTaskDelay(pdMS_TO_TICKS(100));
+
+
+    }
+
+    // 주기 반복 예시 (원하면 주석 해제)
+    // for(;;) {
+    //     uart1_request_info(TARGET_ID, 0x00, 2000);
+    //     vTaskDelay(pdMS_TO_TICKS(1000));
+    //     uart1_request_info(TARGET_ID, 0x01, 2000);
+    //     vTaskDelay(pdMS_TO_TICKS(1000));
+   // }
+
+    vTaskDelete(NULL);
+}

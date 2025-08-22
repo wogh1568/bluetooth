@@ -1,0 +1,62 @@
+[1/5] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Espressif\frameworks\esp-idf-v5.4.2\examples\bluetooth\SF_PM\build\esp-idf\esptool_py && C:\Espressif\python_env\idf5.4_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.4.2/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/Espressif/frameworks/esp-idf-v5.4.2/examples/bluetooth/SF_PM/build/partition_table/partition-table.bin C:/Espressif/frameworks/esp-idf-v5.4.2/examples/bluetooth/SF_PM/build/wifi_station.bin"
+wifi_station.bin binary size 0x92d50 bytes. Smallest app partition is 0x200000 bytes. 0x16d2b0 bytes (71%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Espressif\frameworks\esp-idf-v5.4.2\examples\bluetooth\SF_PM\build\bootloader\esp-idf\esptool_py && C:\Espressif\python_env\idf5.4_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.4.2/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 C:/Espressif/frameworks/esp-idf-v5.4.2/examples/bluetooth/SF_PM/build/bootloader/bootloader.bin"
+Bootloader binary size 0x51c0 bytes. 0x2e40 bytes (36%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Espressif\frameworks\esp-idf-v5.4.2\components\esptool_py && C:\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=C:/Espressif/frameworks/esp-idf-v5.4.2 -D SERIAL_TOOL=C:/Espressif/python_env/idf5.4_py3.11_env/Scripts/python.exe;;C:/Espressif/frameworks/esp-idf-v5.4.2/components/esptool_py/esptool/esptool.py;--chip;esp32s3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=C:/Espressif/frameworks/esp-idf-v5.4.2/examples/bluetooth/SF_PM/build -P C:/Espressif/frameworks/esp-idf-v5.4.2/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32s3 -p COM3 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 16MB 0x0 bootloader/bootloader.bin 0x10000 wifi_station.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.9.0
+Serial port COM3
+Connecting....
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+MAC: 30:ed:a0:bd:57:5c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x000a2fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 20928 bytes to 13326...
+Writing at 0x00000000... (100 %)
+Wrote 20928 bytes (13326 compressed) at 0x00000000 in 0.7 seconds (effective 245.5 kbit/s)...
+Hash of data verified.
+Compressed 601424 bytes to 351827...
+Writing at 0x00010000... (4 %)
+Writing at 0x0001c7ab... (9 %)
+Writing at 0x00026283... (13 %)
+Writing at 0x0002f280... (18 %)
+Writing at 0x0003502e... (22 %)
+Writing at 0x0003b805... (27 %)
+Writing at 0x00041bec... (31 %)
+Writing at 0x000484a1... (36 %)
+Writing at 0x0004e398... (40 %)
+Writing at 0x00053e1c... (45 %)
+Writing at 0x0005969a... (50 %)
+Writing at 0x0005f1cb... (54 %)
+Writing at 0x000655c6... (59 %)
+Writing at 0x0006b43f... (63 %)
+Writing at 0x000716dc... (68 %)
+Writing at 0x00077477... (72 %)
+Writing at 0x0007cd53... (77 %)
+Writing at 0x00086969... (81 %)
+Writing at 0x0008ddbd... (86 %)
+Writing at 0x0009320d... (90 %)
+Writing at 0x0009926b... (95 %)
+Writing at 0x0009fba6... (100 %)
+Wrote 601424 bytes (351827 compressed) at 0x00010000 in 7.9 seconds (effective 606.3 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 189...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (189 compressed) at 0x00008000 in 0.1 seconds (effective 361.2 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

@@ -1,0 +1,2799 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x1564
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd24
+load:0x403cb700,len:0x2ed4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 21 2025 17:15:17[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 ota_0            OTA app          00 10 00210000 00200000[0m
+[0;32mI (85) boot:  4 ota_1            OTA app          00 11 00410000 00200000[0m
+[0;32mI (91) boot:  5 storage          Unknown data     01 83 00610000 00100000[0m
+[0;32mI (98) boot:  6 spiffs           Unknown data     01 82 00710000 00400000[0m
+[0;32mI (104) boot:  7 userdata         Unknown data     01 84 00b10000 00100000[0m
+[0;32mI (111) boot:  8 reserved         unknown          40 01 00c10000 003f0000[0m
+[0;32mI (118) boot: End of partition table[0m
+[0;32mI (121) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=17dech ( 97772) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=00027e14 vaddr=3fc9d200 size=04520h ( 17696) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0002c33c vaddr=40374000 size=03cdch ( 15580) load[0m
+[0;32mI (153) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5d7e8h (382952) map[0m
+[0;32mI (225) esp_image: segment 4: paddr=0008d810 vaddr=40377cdc size=154f0h ( 87280) load[0m
+[0;32mI (244) esp_image: segment 5: paddr=000a2d08 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (254) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (254) boot: Disabling RNG early entropy source...[0m
+[0;32mI (264) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (264) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (264) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (266) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (270) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (275) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (279) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (284) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (289) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (293) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (298) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (303) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (306) esp_psram: Speed: 40MHz[0m
+[0;32mI (309) cpu_start: Multicore app[0m
+[0;32mI (1043) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1052) cpu_start: Pro cpu start user code[0m
+[0;32mI (1052) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1052) app_init: Application information:[0m
+[0;32mI (1052) app_init: Project name:     wifi_station[0m
+[0;32mI (1057) app_init: App version:      3dfaced-dirty[0m
+[0;32mI (1061) app_init: Compile time:     Aug 21 2025 17:20:18[0m
+[0;32mI (1066) app_init: ELF file SHA256:  c04bdfb40...[0m
+[0;32mI (1071) app_init: ESP-IDF:          v5.4.2-dirty[0m
+[0;32mI (1075) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1079) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1083) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1087) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1094) heap_init: At 3FCA3CA0 len 00045A70 (278 KiB): RAM[0m
+[0;32mI (1099) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1104) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1109) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (1115) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1122) spi_flash: detected chip: generic[0m
+[0;32mI (1125) spi_flash: flash io: dio[0m
+[0;32mI (1129) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1135) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1141) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (1165) coexist: coexist rom version e7ae62f[0m
+[0;32mI (1166) main_task: Started on CPU0[0m
+[0;32mI (1176) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1176) main_task: Calling app_main()[0m
+[0;32mI (1186) uart: queue free spaces: 30[0m
+[0;32mI (1186) BLE: NVS SSID: 47281[0m
+[0;32mI (1186) BLE: NVS PWD: 155352[0m
+[0;32mI (1186) BLE: NVS CH: 1[0m
+[0;32mI (1186) BLE: NVS SP: 1[0m
+[0;32mI (1186) BLE_INIT: BT controller compile version [6cfabcd][0m
+[0;32mI (1196) BLE_LOG: Succeeded to initialize upper layer task log![0m
+[0;32mI (1196) gpio: GPIO[3]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1206) BLE_LOG: Succeeded to initialize timestamp synchronizer![0m
+[0;32mI (1216) BLE_LOG: Succeeded to initialize BLE log SPI output interface![0m
+[0;32mI (1226) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (1226) BLE_INIT: Bluetooth MAC: 30:ed:a0:bd:57:5e[0m
+[0;32mI (1236) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1276) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1346) BLE: nimble host task start[0m
+[0;32mI (1346) BLE: reg svc 0x1800 handle=1[0m
+[0;32mI (1356) BLE: reg chr 0x2a00 def=2 val=3[0m
+[0;32mI (1356) BLE: reg chr 0x2a01 def=4 val=5[0m
+[0;32mI (1356) BLE: reg svc 0x1801 handle=6[0m
+[0;32mI (1356) BLE: reg chr 0x2a05 def=7 val=8[0m
+[0;32mI (1356) BLE: reg chr 0x2b3a def=10 val=11[0m
+[0;32mI (1366) BLE: reg chr 0x2b29 def=12 val=13[0m
+[0;32mI (1366) BLE: reg svc 0100bc9a-7856-3412-f0de-bc9a78563412 handle=14[0m
+[0;32mI (1376) BLE: reg chr 00002211-eedd-ccbb-aa99-887766554433 def=15 val=16[0m
+[0;32mI (1386) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (1386) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1386) NimBLE: disc_mode=2[0m
+[0;32mI (1396) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1406) NimBLE: [0m
+
+[0;32mI (1406) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1346) main_task: Returned from app_main()[0m
+[0;32mI (907366) BLE: connect ok; status=0[0m
+[0;32mI (908036) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (908036) BLE: start security on subscribe[0m
+[0;32mI (910586) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (910586) BLE: enc change: status=0[0m
+[0;32mI (911426) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (915146) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (916166) BLE: RX(3): BYE[0m
+[0;32mI (916166) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (916166) NimBLE: att_handle=16[0m
+
+[0;32mI (916666) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (916676) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (916676) BLE: disconnect; reason=534[0m
+[0;32mI (919676) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (919676) NimBLE: disc_mode=2[0m
+[0;32mI (919676) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (919676) NimBLE: [0m
+
+[0;32mI (919686) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (931426) BLE: connect ok; status=0[0m
+[0;32mI (931606) BLE: enc change: status=0[0m
+[0;32mI (931606) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (931816) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (931816) BLE: already bonded, skip security_initiate[0m
+[0;32mI (934036) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (934546) BLE: RX(3): BYE[0m
+[0;32mI (934546) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (934546) NimBLE: att_handle=16[0m
+
+[0;32mI (935046) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (935056) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (935056) BLE: disconnect; reason=534[0m
+[0;32mI (938056) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (938056) NimBLE: disc_mode=2[0m
+[0;32mI (938056) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (938066) NimBLE: [0m
+
+[0;32mI (938066) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1314866) BLE: connect ok; status=0[0m
+[0;32mI (1315046) BLE: enc change: status=0[0m
+[0;32mI (1315046) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1315286) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1315286) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1317266) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1404656) BLE: RX(3): BYE[0m
+[0;32mI (1404656) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1404656) NimBLE: att_handle=16[0m
+
+[0;32mI (1405156) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1405166) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1405166) BLE: disconnect; reason=534[0m
+[0;32mI (1408166) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1408166) NimBLE: disc_mode=2[0m
+[0;32mI (1408166) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1408176) NimBLE: [0m
+
+[0;32mI (1408176) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1410026) BLE: connect ok; status=0[0m
+[0;32mI (1410206) BLE: enc change: status=0[0m
+[0;32mI (1410206) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1410506) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1410506) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1411856) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1421846) BLE: RX(3): BYE[0m
+[0;32mI (1421846) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1421846) NimBLE: att_handle=16[0m
+
+[0;32mI (1422346) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1422356) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1422356) BLE: disconnect; reason=534[0m
+[0;32mI (1425356) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1425356) NimBLE: disc_mode=2[0m
+[0;32mI (1425356) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1425366) NimBLE: [0m
+
+[0;32mI (1425366) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1711136) BLE: connect ok; status=0[0m
+[0;32mI (1711346) BLE: enc change: status=0[0m
+[0;32mI (1711346) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1711616) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1711616) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1713236) BLE: RX(4): CH:1[0m
+[0;32mI (1713236) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1713236) NimBLE: att_handle=16[0m
+
+[0;32mI (1713386) BLE: RX(4): SP:1[0m
+[0;32mI (1713386) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1713386) NimBLE: att_handle=16[0m
+
+[0;32mI (2164086) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (2164506) BLE: RX(3): BYE[0m
+[0;32mI (2164506) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (2164506) NimBLE: att_handle=16[0m
+
+[0;32mI (2165006) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (2165016) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (2165016) BLE: disconnect; reason=534[0m
+[0;32mI (2168016) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (2168016) NimBLE: disc_mode=2[0m
+[0;32mI (2168016) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (2168026) NimBLE: [0m
+
+[0;32mI (2168026) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (2171646) BLE: connect ok; status=0[0m
+[0;32mI (2171826) BLE: enc change: status=0[0m
+[0;32mI (2171826) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (2172066) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (2172066) BLE: already bonded, skip security_initiate[0m
+[0;32mI (2174196) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (2178336) BLE: RX(3): BYE[0m
+[0;32mI (2178336) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (2178336) NimBLE: att_handle=16[0m
+
+[0;32mI (2178836) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (2178846) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (2178846) BLE: disconnect; reason=534[0m
+[0;32mI (2181846) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (2181846) NimBLE: disc_mode=2[0m
+[0;32mI (2181846) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (2181856) NimBLE: [0m
+
+[0;32mI (2181856) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (2190246) BLE: connect ok; status=0[0m
+[0;32mI (2190426) BLE: enc change: status=0[0m
+[0;32mI (2190426) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (2190696) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (2190696) BLE: already bonded, skip security_initiate[0m
+[0;32mI (2192616) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (2193126) BLE: RX(3): BYE[0m
+[0;32mI (2193126) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (2193126) NimBLE: att_handle=16[0m
+
+[0;32mI (2193626) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (2193636) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (2193636) BLE: disconnect; reason=534[0m
+[0;32mI (2196636) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (2196636) NimBLE: disc_mode=2[0m
+[0;32mI (2196636) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (2196646) NimBLE: [0m
+
+[0;32mI (2196646) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (2383506) BLE: connect ok; status=0[0m
+[0;32mI (2383686) BLE: enc change: status=0[0m
+[0;32mI (2383686) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (2383926) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (2383926) BLE: already bonded, skip security_initiate[0m
+[0;32mI (2388786) BLE: RX(9): SSID:1623[0m
+[0;32mI (2388796) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (2388796) NimBLE: att_handle=16[0m
+
+[0;32mI (2388966) BLE: RX(10): PWD:361717[0m
+[0;32mI (2388976) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (2388976) NimBLE: att_handle=16[0m
+
+[0;32mI (2394816) BLE: RX(4): CH:4[0m
+[0;32mI (2394826) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (2394826) NimBLE: att_handle=16[0m
+
+[0;32mI (2394996) BLE: RX(4): SP:6[0m
+[0;32mI (2395006) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (2395006) NimBLE: att_handle=16[0m
+
+[0;32mI (2400186) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (2403906) BLE: RX(3): BYE[0m
+[0;32mI (2403906) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (2403906) NimBLE: att_handle=16[0m
+
+[0;32mI (2404406) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (2404416) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (2404416) BLE: disconnect; reason=534[0m
+[0;32mI (2407426) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (2407426) NimBLE: disc_mode=2[0m
+[0;32mI (2407426) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (2407426) NimBLE: [0m
+
+[0;32mI (2407426) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (2411076) BLE: connect ok; status=0[0m
+[0;32mI (2411256) BLE: enc change: status=0[0m
+[0;32mI (2411256) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (2411466) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (2411466) BLE: already bonded, skip security_initiate[0m
+[0;32mI (2417496) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (2418456) BLE: RX(3): BYE[0m
+[0;32mI (2418456) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (2418456) NimBLE: att_handle=16[0m
+
+[0;32mI (2418956) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (2418966) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (2418966) BLE: disconnect; reason=534[0m
+[0;32mI (2421976) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (2421976) NimBLE: disc_mode=2[0m
+[0;32mI (2421976) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (2421976) NimBLE: [0m
+
+[0;32mI (2421976) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (2516766) BLE: connect ok; status=0[0m
+[0;32mI (2516946) BLE: enc change: status=0[0m
+[0;32mI (2516956) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (2517216) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (2517226) BLE: already bonded, skip security_initiate[0m
+[0;32mI (2518656) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (2519646) BLE: RX(3): BYE[0m
+[0;32mI (2519656) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (2519656) NimBLE: att_handle=16[0m
+
+[0;32mI (2520156) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (2520166) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (2520166) BLE: disconnect; reason=534[0m
+[0;32mI (2523166) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (2523166) NimBLE: disc_mode=2[0m
+[0;32mI (2523166) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (2523166) NimBLE: [0m
+
+[0;32mI (2523176) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (2697406) BLE: connect ok; status=0[0m
+[0;32mI (2697586) BLE: enc change: status=0[0m
+[0;32mI (2697586) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (2697826) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (2697826) BLE: already bonded, skip security_initiate[0m
+[0;32mI (2699086) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (2699986) BLE: RX(3): BYE[0m
+[0;32mI (2699986) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (2699986) NimBLE: att_handle=16[0m
+
+[0;32mI (2700486) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (2700496) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (2700496) BLE: disconnect; reason=534[0m
+[0;32mI (2703496) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (2703496) NimBLE: disc_mode=2[0m
+[0;32mI (2703496) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (2703506) NimBLE: [0m
+
+[0;32mI (2703506) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (2713906) BLE: connect ok; status=0[0m
+[0;32mI (2714086) BLE: enc change: status=0[0m
+[0;32mI (2714086) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (2714296) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (2714296) BLE: already bonded, skip security_initiate[0m
+[0;32mI (2715316) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (2715946) BLE: RX(3): BYE[0m
+[0;32mI (2715946) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (2715946) NimBLE: att_handle=16[0m
+
+[0;32mI (2716446) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (2716486) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (2716486) BLE: disconnect; reason=534[0m
+[0;32mI (2719486) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (2719486) NimBLE: disc_mode=2[0m
+[0;32mI (2719486) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (2719496) NimBLE: [0m
+
+[0;32mI (2719496) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (3342266) BLE: connect ok; status=0[0m
+[0;32mI (3342446) BLE: enc change: status=0[0m
+[0;32mI (3342446) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (3342656) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (3342656) BLE: already bonded, skip security_initiate[0m
+[0;32mI (3343946) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (3344336) BLE: RX(3): BYE[0m
+[0;32mI (3344336) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (3344336) NimBLE: att_handle=16[0m
+
+[0;32mI (3344836) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (3344846) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (3344846) BLE: disconnect; reason=534[0m
+[0;32mI (3347846) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (3347846) NimBLE: disc_mode=2[0m
+[0;32mI (3347846) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (3347856) NimBLE: [0m
+
+[0;32mI (3347856) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (3349946) BLE: connect ok; status=0[0m
+[0;32mI (3350126) BLE: enc change: status=0[0m
+[0;32mI (3350126) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (3350396) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (3350396) BLE: already bonded, skip security_initiate[0m
+[0;32mI (3351536) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (3352796) BLE: RX(3): BYE[0m
+[0;32mI (3352796) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (3352796) NimBLE: att_handle=16[0m
+
+[0;32mI (3353296) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (3353306) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (3353306) BLE: disconnect; reason=534[0m
+[0;32mI (3356306) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (3356306) NimBLE: disc_mode=2[0m
+[0;32mI (3356306) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (3356316) NimBLE: [0m
+
+[0;32mI (3356316) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (3370286) BLE: connect ok; status=0[0m
+[0;32mI (3370466) BLE: enc change: status=0[0m
+[0;32mI (3370466) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (3370676) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (3370676) BLE: already bonded, skip security_initiate[0m
+[0;32mI (3372176) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (3373796) BLE: RX(3): BYE[0m
+[0;32mI (3373796) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (3373796) NimBLE: att_handle=16[0m
+
+[0;32mI (3374296) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (3374306) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (3374306) BLE: disconnect; reason=534[0m
+[0;32mI (3377306) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (3377306) NimBLE: disc_mode=2[0m
+[0;32mI (3377306) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (3377316) NimBLE: [0m
+
+[0;32mI (3377316) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (3491456) BLE: connect ok; status=0[0m
+[0;32mI (3491636) BLE: enc change: status=0[0m
+[0;32mI (3491636) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (3491846) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (3491846) BLE: already bonded, skip security_initiate[0m
+[0;32mI (3493046) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (3493736) BLE: RX(3): BYE[0m
+[0;32mI (3493736) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (3493736) NimBLE: att_handle=16[0m
+
+[0;32mI (3494236) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (3494246) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (3494246) BLE: disconnect; reason=534[0m
+[0;32mI (3497246) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (3497246) NimBLE: disc_mode=2[0m
+[0;32mI (3497246) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (3497256) NimBLE: [0m
+
+[0;32mI (3497256) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (3603446) BLE: connect ok; status=0[0m
+[0;32mI (3603626) BLE: enc change: status=0[0m
+[0;32mI (3603626) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (3603866) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (3603866) BLE: already bonded, skip security_initiate[0m
+[0;32mI (3605216) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (3606296) BLE: RX(3): BYE[0m
+[0;32mI (3606296) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (3606296) NimBLE: att_handle=16[0m
+
+[0;32mI (3606796) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (3606806) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (3606806) BLE: disconnect; reason=534[0m
+[0;32mI (3609806) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (3609816) NimBLE: disc_mode=2[0m
+[0;32mI (3609816) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (3609816) NimBLE: [0m
+
+[0;32mI (3609816) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (3616886) BLE: connect ok; status=0[0m
+[0;32mI (3617066) BLE: enc change: status=0[0m
+[0;32mI (3617066) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (3617306) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (3617306) BLE: already bonded, skip security_initiate[0m
+[0;32mI (3618926) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (3622076) BLE: RX(3): BYE[0m
+[0;32mI (3622076) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (3622076) NimBLE: att_handle=16[0m
+
+[0;32mI (3622576) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (3622586) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (3622586) BLE: disconnect; reason=534[0m
+[0;32mI (3625586) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (3625596) NimBLE: disc_mode=2[0m
+[0;32mI (3625596) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (3625596) NimBLE: [0m
+
+[0;32mI (3625596) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (3640496) BLE: connect ok; status=0[0m
+[0;32mI (3640676) BLE: enc change: status=0[0m
+[0;32mI (3640676) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (3640886) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (3640886) BLE: already bonded, skip security_initiate[0m
+[0;32mI (3642176) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (3642896) BLE: RX(3): BYE[0m
+[0;32mI (3642896) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (3642896) NimBLE: att_handle=16[0m
+
+[0;32mI (3643396) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (3643406) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (3643406) BLE: disconnect; reason=534[0m
+[0;32mI (3646416) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (3646416) NimBLE: disc_mode=2[0m
+[0;32mI (3646416) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (3646416) NimBLE: [0m
+
+[0;32mI (3646416) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (3649376) BLE: connect ok; status=0[0m
+[0;32mI (3649556) BLE: enc change: status=0[0m
+[0;32mI (3649556) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (3649766) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (3649766) BLE: already bonded, skip security_initiate[0m
+[0;32mI (3651236) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (3651626) BLE: RX(3): BYE[0m
+[0;32mI (3651626) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (3651626) NimBLE: att_handle=16[0m
+
+[0;32mI (3652126) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (3652136) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (3652136) BLE: disconnect; reason=534[0m
+[0;32mI (3655146) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (3655146) NimBLE: disc_mode=2[0m
+[0;32mI (3655146) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (3655146) NimBLE: [0m
+
+[0;32mI (3655146) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (3656756) BLE: connect ok; status=0[0m
+[0;32mI (3656936) BLE: enc change: status=0[0m
+[0;32mI (3656936) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (3657146) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (3657146) BLE: already bonded, skip security_initiate[0m
+[0;32mI (3658136) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (3658856) BLE: RX(3): BYE[0m
+[0;32mI (3658856) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (3658856) NimBLE: att_handle=16[0m
+
+[0;32mI (3659356) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (3659366) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (3659366) BLE: disconnect; reason=534[0m
+[0;32mI (3662376) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (3662376) NimBLE: disc_mode=2[0m
+[0;32mI (3662376) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (3662376) NimBLE: [0m
+
+[0;32mI (3662376) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (3673886) BLE: connect ok; status=0[0m
+[0;32mI (3674066) BLE: enc change: status=0[0m
+[0;32mI (3674066) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (3674276) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (3674276) BLE: already bonded, skip security_initiate[0m
+[0;32mI (3675656) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (3677426) BLE: RX(3): BYE[0m
+[0;32mI (3677426) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (3677426) NimBLE: att_handle=16[0m
+
+[0;32mI (3677926) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (3677936) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (3677936) BLE: disconnect; reason=534[0m
+[0;32mI (3680946) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (3680946) NimBLE: disc_mode=2[0m
+[0;32mI (3680946) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (3680946) NimBLE: [0m
+
+[0;32mI (3680956) BLE: Advertising as "FAL_A0BD575E"[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x1564
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd24
+load:0x403cb700,len:0x2ed4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 21 2025 17:15:17[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 ota_0            OTA app          00 10 00210000 00200000[0m
+[0;32mI (85) boot:  4 ota_1            OTA app          00 11 00410000 00200000[0m
+[0;32mI (91) boot:  5 storage          Unknown data     01 83 00610000 00100000[0m
+[0;32mI (98) boot:  6 spiffs           Unknown data     01 82 00710000 00400000[0m
+[0;32mI (104) boot:  7 userdata         Unknown data     01 84 00b10000 00100000[0m
+[0;32mI (111) boot:  8 reserved         unknown          40 01 00c10000 003f0000[0m
+[0;32mI (118) boot: End of partition table[0m
+[0;32mI (121) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=17dech ( 97772) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=00027e14 vaddr=3fc9d200 size=04520h ( 17696) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0002c33c vaddr=40374000 size=03cdch ( 15580) load[0m
+[0;32mI (153) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5d7e8h (382952) map[0m
+[0;32mI (225) esp_image: segment 4: paddr=0008d810 vaddr=40377cdc size=154f0h ( 87280) load[0m
+[0;32mI (244) esp_image: segment 5: paddr=000a2d08 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (254) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (254) boot: Disabling RNG early entropy source...[0m
+[0;32mI (264) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (264) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (264) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (266) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (270) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (275) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (279) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (284) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (289) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (293) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (298) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (303) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (306) esp_psram: Speed: 40MHz[0m
+[0;32mI (309) cpu_start: Multicore app[0m
+[0;32mI (1043) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1052) cpu_start: Pro cpu start user code[0m
+[0;32mI (1052) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1052) app_init: Application information:[0m
+[0;32mI (1052) app_init: Project name:     wifi_station[0m
+[0;32mI (1057) app_init: App version:      3dfaced-dirty[0m
+[0;32mI (1061) app_init: Compile time:     Aug 21 2025 17:20:18[0m
+[0;32mI (1066) app_init: ELF file SHA256:  c04bdfb40...[0m
+[0;32mI (1071) app_init: ESP-IDF:          v5.4.2-dirty[0m
+[0;32mI (1075) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1079) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1083) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1087) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1094) heap_init: At 3FCA3CA0 len 00045A70 (278 KiB): RAM[0m
+[0;32mI (1099) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1104) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1109) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (1115) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1122) spi_flash: detected chip: generic[0m
+[0;32mI (1125) spi_flash: flash io: dio[0m
+[0;32mI (1129) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1135) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1141) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (1165) coexist: coexist rom version e7ae62f[0m
+[0;32mI (1166) main_task: Started on CPU0[0m
+[0;32mI (1176) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1176) main_task: Calling app_main()[0m
+[0;32mI (1186) uart: queue free spaces: 30[0m
+[0;32mI (1186) BLE: NVS SSID: 1623[0m
+[0;32mI (1186) BLE: NVS PWD: 361717[0m
+[0;32mI (1186) BLE: NVS CH: 4[0m
+[0;32mI (1186) BLE: NVS SP: 6[0m
+[0;32mI (1186) BLE_INIT: BT controller compile version [6cfabcd][0m
+[0;32mI (1196) BLE_LOG: Succeeded to initialize upper layer task log![0m
+[0;32mI (1196) gpio: GPIO[3]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1206) BLE_LOG: Succeeded to initialize timestamp synchronizer![0m
+[0;32mI (1216) BLE_LOG: Succeeded to initialize BLE log SPI output interface![0m
+[0;32mI (1226) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (1226) BLE_INIT: Bluetooth MAC: 30:ed:a0:bd:57:5e[0m
+[0;32mI (1236) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1276) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1296) BLE: nimble host task start[0m
+[0;32mI (1296) BLE: reg svc 0x1800 handle=1[0m
+[0;32mI (1296) BLE: reg chr 0x2a00 def=2 val=3[0m
+[0;32mI (1296) BLE: reg chr 0x2a01 def=4 val=5[0m
+[0;32mI (1296) BLE: reg svc 0x1801 handle=6[0m
+[0;32mI (1296) BLE: reg chr 0x2a05 def=7 val=8[0m
+[0;32mI (1306) BLE: reg chr 0x2b3a def=10 val=11[0m
+[0;32mI (1306) BLE: reg chr 0x2b29 def=12 val=13[0m
+[0;32mI (1306) BLE: reg svc 0100bc9a-7856-3412-f0de-bc9a78563412 handle=14[0m
+[0;32mI (1316) BLE: reg chr 00002211-eedd-ccbb-aa99-887766554433 def=15 val=16[0m
+[0;32mI (1326) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (1326) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1336) NimBLE: disc_mode=2[0m
+[0;32mI (1336) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1346) NimBLE: [0m
+
+[0;32mI (1346) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1296) main_task: Returned from app_main()[0m
+[0;32mI (15626) BLE: connect ok; status=0[0m
+[0;32mI (16316) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (16316) BLE: start security on subscribe[0m
+[0;32mI (19856) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (19856) BLE: enc change: status=0[0m
+[0;32mI (20696) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (21986) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (49796) BLE: RX(3): BYE[0m
+[0;32mI (49796) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (49796) NimBLE: att_handle=16[0m
+
+[0;32mI (50296) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (50306) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (50306) BLE: disconnect; reason=534[0m
+[0;32mI (53306) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (53306) NimBLE: disc_mode=2[0m
+[0;32mI (53306) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (53316) NimBLE: [0m
+
+[0;32mI (53316) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (59456) BLE: connect ok; status=0[0m
+[0;32mI (59636) BLE: enc change: status=0[0m
+[0;32mI (59636) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (59846) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (59846) BLE: already bonded, skip security_initiate[0m
+[0;32mI (61076) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (62126) BLE: RX(3): BYE[0m
+[0;32mI (62126) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (62126) NimBLE: att_handle=16[0m
+
+[0;32mI (62626) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (62636) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (62636) BLE: disconnect; reason=534[0m
+[0;32mI (65636) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (65636) NimBLE: disc_mode=2[0m
+[0;32mI (65636) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (65646) NimBLE: [0m
+
+[0;32mI (65646) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (69506) BLE: connect ok; status=0[0m
+[0;32mI (69716) BLE: enc change: status=0[0m
+[0;32mI (69716) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (69926) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (69926) BLE: already bonded, skip security_initiate[0m
+[0;32mI (71696) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (72866) BLE: RX(3): BYE[0m
+[0;32mI (72866) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (72866) NimBLE: att_handle=16[0m
+
+[0;32mI (73366) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (73376) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (73376) BLE: disconnect; reason=534[0m
+[0;32mI (76376) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (76376) NimBLE: disc_mode=2[0m
+[0;32mI (76376) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (76386) NimBLE: [0m
+
+[0;32mI (76386) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (864096) BLE: connect ok; status=0[0m
+[0;32mI (864276) BLE: enc change: status=0[0m
+[0;32mI (864276) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (864576) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (864576) BLE: already bonded, skip security_initiate[0m
+[0;32mI (865776) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (866796) BLE: RX(3): BYE[0m
+[0;32mI (866796) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (866796) NimBLE: att_handle=16[0m
+
+[0;32mI (867296) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (867336) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (867336) BLE: disconnect; reason=534[0m
+[0;32mI (870346) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (870346) NimBLE: disc_mode=2[0m
+[0;32mI (870346) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (870346) NimBLE: [0m
+
+[0;32mI (870346) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (948456) BLE: connect ok; status=0[0m
+[0;32mI (948636) BLE: enc change: status=0[0m
+[0;32mI (948646) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (948846) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (948856) BLE: already bonded, skip security_initiate[0m
+[0;32mI (957096) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (957846) BLE: RX(3): BYE[0m
+[0;32mI (957856) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (957856) NimBLE: att_handle=16[0m
+
+[0;32mI (958356) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (958366) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (958366) BLE: disconnect; reason=534[0m
+[0;32mI (961366) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (961366) NimBLE: disc_mode=2[0m
+[0;32mI (961366) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (961366) NimBLE: [0m
+
+[0;32mI (961376) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1299706) BLE: connect ok; status=0[0m
+[0;32mI (1299886) BLE: enc change: status=0[0m
+[0;32mI (1299886) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1300126) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1300126) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1301446) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1302136) BLE: RX(3): BYE[0m
+[0;32mI (1302136) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1302136) NimBLE: att_handle=16[0m
+
+[0;32mI (1302636) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1302646) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1302646) BLE: disconnect; reason=534[0m
+[0;32mI (1305646) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1305646) NimBLE: disc_mode=2[0m
+[0;32mI (1305646) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1305656) NimBLE: [0m
+
+[0;32mI (1305656) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1326796) BLE: connect ok; status=0[0m
+[0;32mI (1326976) BLE: enc change: status=0[0m
+[0;32mI (1326976) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1327216) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1327216) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1328536) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1330516) BLE: RX(3): BYE[0m
+[0;32mI (1330516) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1330516) NimBLE: att_handle=16[0m
+
+[0;32mI (1331016) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1331026) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1331026) BLE: disconnect; reason=534[0m
+[0;32mI (1334026) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1334026) NimBLE: disc_mode=2[0m
+[0;32mI (1334026) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1334036) NimBLE: [0m
+
+[0;32mI (1334036) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1355506) BLE: connect ok; status=0[0m
+[0;32mI (1355686) BLE: enc change: status=0[0m
+[0;32mI (1355686) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1355926) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1355926) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1357366) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1358056) BLE: RX(3): BYE[0m
+[0;32mI (1358056) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1358056) NimBLE: att_handle=16[0m
+
+[0;32mI (1358556) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1358566) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1358566) BLE: disconnect; reason=534[0m
+[0;32mI (1361566) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1361566) NimBLE: disc_mode=2[0m
+[0;32mI (1361566) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1361576) NimBLE: [0m
+
+[0;32mI (1361576) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1516096) BLE: connect ok; status=0[0m
+[0;32mI (1516276) BLE: enc change: status=0[0m
+[0;32mI (1516276) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1516576) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1516576) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1517566) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1518196) BLE: RX(3): BYE[0m
+[0;32mI (1518196) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1518196) NimBLE: att_handle=16[0m
+
+[0;32mI (1518696) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1518706) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1518706) BLE: disconnect; reason=534[0m
+[0;32mI (1521716) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1521716) NimBLE: disc_mode=2[0m
+[0;32mI (1521716) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1521716) NimBLE: [0m
+
+[0;32mI (1521726) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1546606) BLE: connect ok; status=0[0m
+[0;32mI (1546786) BLE: enc change: status=0[0m
+[0;32mI (1546786) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1547026) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1547026) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1548136) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1548826) BLE: RX(3): BYE[0m
+[0;32mI (1548826) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1548826) NimBLE: att_handle=16[0m
+
+[0;32mI (1549336) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1549336) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1549346) BLE: disconnect; reason=534[0m
+[0;32mI (1552346) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1552346) NimBLE: disc_mode=2[0m
+[0;32mI (1552346) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1552346) NimBLE: [0m
+
+[0;32mI (1552356) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1567726) BLE: connect ok; status=0[0m
+[0;32mI (1567966) BLE: enc change: status=0[0m
+[0;32mI (1567966) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1568356) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1568356) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1573426) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1573436) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1573436) BLE: disconnect; reason=531[0m
+[0;32mI (1576436) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1576436) NimBLE: disc_mode=2[0m
+[0;32mI (1576436) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1576446) NimBLE: [0m
+
+[0;32mI (1576446) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1580536) BLE: connect ok; status=0[0m
+[0;32mI (1580716) BLE: enc change: status=0[0m
+[0;32mI (1580726) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1580726) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1580726) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1582186) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1582846) BLE: RX(3): BYE[0m
+[0;32mI (1582856) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1582856) NimBLE: att_handle=16[0m
+
+[0;32mI (1583356) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1583366) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1583366) BLE: disconnect; reason=534[0m
+[0;32mI (1586366) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1586366) NimBLE: disc_mode=2[0m
+[0;32mI (1586366) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1586366) NimBLE: [0m
+
+[0;32mI (1586376) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1590466) BLE: connect ok; status=0[0m
+[0;32mI (1590646) BLE: enc change: status=0[0m
+[0;32mI (1590656) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1590856) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1590866) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1593796) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1594546) BLE: RX(3): BYE[0m
+[0;32mI (1594556) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1594556) NimBLE: att_handle=16[0m
+
+[0;32mI (1595056) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1595066) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1595066) BLE: disconnect; reason=534[0m
+[0;32mI (1598066) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1598066) NimBLE: disc_mode=2[0m
+[0;32mI (1598066) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1598066) NimBLE: [0m
+
+[0;32mI (1598076) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1650866) BLE: connect ok; status=0[0m
+[0;32mI (1651046) BLE: enc change: status=0[0m
+[0;32mI (1651046) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1651286) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1651286) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1652366) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1653056) BLE: RX(3): BYE[0m
+[0;32mI (1653056) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1653056) NimBLE: att_handle=16[0m
+
+[0;32mI (1653556) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1653566) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1653566) BLE: disconnect; reason=534[0m
+[0;32mI (1656566) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1656566) NimBLE: disc_mode=2[0m
+[0;32mI (1656566) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1656566) NimBLE: [0m
+
+[0;32mI (1656576) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1695326) BLE: connect ok; status=0[0m
+[0;32mI (1695506) BLE: enc change: status=0[0m
+[0;32mI (1695506) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1695746) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1695746) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1696856) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1697576) BLE: RX(3): BYE[0m
+[0;32mI (1697576) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1697576) NimBLE: att_handle=16[0m
+
+[0;32mI (1698076) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1698086) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1698086) BLE: disconnect; reason=534[0m
+[0;32mI (1701086) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1701086) NimBLE: disc_mode=2[0m
+[0;32mI (1701086) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1701096) NimBLE: [0m
+
+[0;32mI (1701096) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1737806) BLE: connect ok; status=0[0m
+[0;32mI (1737986) BLE: enc change: status=0[0m
+[0;32mI (1737986) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1738226) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1738226) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1739246) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1739786) BLE: RX(3): BYE[0m
+[0;32mI (1739786) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1739786) NimBLE: att_handle=16[0m
+
+[0;32mI (1740286) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1740296) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1740296) BLE: disconnect; reason=534[0m
+[0;32mI (1743296) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1743296) NimBLE: disc_mode=2[0m
+[0;32mI (1743296) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1743306) NimBLE: [0m
+
+[0;32mI (1743306) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1749446) BLE: connect ok; status=0[0m
+[0;32mI (1749626) BLE: enc change: status=0[0m
+[0;32mI (1749626) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1749866) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1749866) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1751276) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1752206) BLE: RX(3): BYE[0m
+[0;32mI (1752206) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1752206) NimBLE: att_handle=16[0m
+
+[0;32mI (1752706) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1752716) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1752716) BLE: disconnect; reason=534[0m
+[0;32mI (1755716) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1755716) NimBLE: disc_mode=2[0m
+[0;32mI (1755716) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1755726) NimBLE: [0m
+
+[0;32mI (1755726) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1758266) BLE: connect ok; status=0[0m
+[0;32mI (1758446) BLE: enc change: status=0[0m
+[0;32mI (1758446) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (1758686) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (1758686) BLE: already bonded, skip security_initiate[0m
+[0;32mI (1759826) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (1760036) BLE: RX(3): BYE[0m
+[0;32mI (1760036) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (1760036) NimBLE: att_handle=16[0m
+
+[0;32mI (1760536) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (1760546) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (1760546) BLE: disconnect; reason=534[0m
+[0;32mI (1763546) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1763546) NimBLE: disc_mode=2[0m
+[0;32mI (1763546) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1763556) NimBLE: [0m
+
+[0;32mI (1763556) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;33mW (1775816) UART1: checksum mismatch calc=0x42 rx=0x00 (len=0)[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x1564
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd24
+load:0x403cb700,len:0x2ed4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 21 2025 17:15:17[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 ota_0            OTA app          00 10 00210000 00200000[0m
+[0;32mI (85) boot:  4 ota_1            OTA app          00 11 00410000 00200000[0m
+[0;32mI (91) boot:  5 storage          Unknown data     01 83 00610000 00100000[0m
+[0;32mI (98) boot:  6 spiffs           Unknown data     01 82 00710000 00400000[0m
+[0;32mI (104) boot:  7 userdata         Unknown data     01 84 00b10000 00100000[0m
+[0;32mI (111) boot:  8 reserved         unknown          40 01 00c10000 003f0000[0m
+[0;32mI (118) boot: End of partition table[0m
+[0;32mI (121) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=17dech ( 97772) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=00027e14 vaddr=3fc9d200 size=04520h ( 17696) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0002c33c vaddr=40374000 size=03cdch ( 15580) load[0m
+[0;32mI (153) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5d7e8h (382952) map[0m
+[0;32mI (225) esp_image: segment 4: paddr=0008d810 vaddr=40377cdc size=154f0h ( 87280) load[0m
+[0;32mI (244) esp_image: segment 5: paddr=000a2d08 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (254) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (254) boot: Disabling RNG early entropy source...[0m
+[0;32mI (264) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (264) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (264) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (266) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (270) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (275) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (279) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (284) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (289) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (293) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (298) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (303) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (306) esp_psram: Speed: 40MHz[0m
+[0;32mI (309) cpu_start: Multicore app[0m
+[0;32mI (1043) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1052) cpu_start: Pro cpu start user code[0m
+[0;32mI (1052) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1052) app_init: Application information:[0m
+[0;32mI (1052) app_init: Project name:     wifi_station[0m
+[0;32mI (1057) app_init: App version:      3dfaced-dirty[0m
+[0;32mI (1061) app_init: Compile time:     Aug 21 2025 17:20:18[0m
+[0;32mI (1066) app_init: ELF file SHA256:  c04bdfb40...[0m
+[0;32mI (1071) app_init: ESP-IDF:          v5.4.2-dirty[0m
+[0;32mI (1075) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1079) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1083) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1087) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1094) heap_init: At 3FCA3CA0 len 00045A70 (278 KiB): RAM[0m
+[0;32mI (1099) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1104) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1109) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (1115) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1122) spi_flash: detected chip: generic[0m
+[0;32mI (1125) spi_flash: flash io: dio[0m
+[0;32mI (1129) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1135) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1141) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (1165) coexist: coexist rom version e7ae62f[0m
+[0;32mI (1166) main_task: Started on CPU0[0m
+[0;32mI (1176) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1176) main_task: Calling app_main()[0m
+[0;32mI (1186) uart: queue free spaces: 30[0m
+[0;32mI (1186) BLE: NVS SSID: 1623[0m
+[0;32mI (1186) BLE: NVS PWD: 361717[0m
+[0;32mI (1186) BLE: NVS CH: 4[0m
+[0;32mI (1186) BLE: NVS SP: 6[0m
+[0;32mI (1186) BLE_INIT: BT controller compile version [6cfabcd][0m
+[0;32mI (1196) BLE_LOG: Succeeded to initialize upper layer task log![0m
+[0;32mI (1196) gpio: GPIO[3]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1206) BLE_LOG: Succeeded to initialize timestamp synchronizer![0m
+[0;32mI (1216) BLE_LOG: Succeeded to initialize BLE log SPI output interface![0m
+[0;32mI (1226) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (1226) BLE_INIT: Bluetooth MAC: 30:ed:a0:bd:57:5e[0m
+[0;32mI (1236) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1276) BLE: nimble host task start[0m
+[0;32mI (1276) BLE: reg svc 0x1800 handle=1[0m
+[0;32mI (1276) BLE: reg chr 0x2a00 def=2 val=3[0m
+[0;32mI (1276) BLE: reg chr 0x2a01 def=4 val=5[0m
+[0;32mI (1276) BLE: reg svc 0x1801 handle=6[0m
+[0;32mI (1276) BLE: reg chr 0x2a05 def=7 val=8[0m
+[0;32mI (1286) BLE: reg chr 0x2b3a def=10 val=11[0m
+[0;32mI (1286) BLE: reg chr 0x2b29 def=12 val=13[0m
+[0;32mI (1296) BLE: reg svc 0100bc9a-7856-3412-f0de-bc9a78563412 handle=14[0m
+[0;32mI (1296) BLE: reg chr 00002211-eedd-ccbb-aa99-887766554433 def=15 val=16[0m
+[0;32mI (1306) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (1306) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1316) NimBLE: disc_mode=2[0m
+[0;32mI (1316) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1326) NimBLE: [0m
+
+[0;32mI (1326) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1276) main_task: Returned from app_main()[0m
+[0;32mI (5206) BLE: connect ok; status=0[0m
+[0;32mI (5906) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (5906) BLE: start security on subscribe[0m
+[0;32mI (9116) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (9116) BLE: enc change: status=0[0m
+[0;32mI (9956) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (10616) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (11216) BLE: RX(3): BYE[0m
+[0;32mI (11216) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (11216) NimBLE: att_handle=16[0m
+
+[0;32mI (11716) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (11726) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (11726) BLE: disconnect; reason=534[0m
+[0;32mI (14726) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (14726) NimBLE: disc_mode=2[0m
+[0;32mI (14726) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (14726) NimBLE: [0m
+
+[0;32mI (14736) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (16576) BLE: connect ok; status=0[0m
+[0;32mI (16756) BLE: enc change: status=0[0m
+[0;32mI (16756) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (16966) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (16966) BLE: already bonded, skip security_initiate[0m
+[0;32mI (18136) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (19336) BLE: RX(3): BYE[0m
+[0;32mI (19336) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (19336) NimBLE: att_handle=16[0m
+
+[0;32mI (19836) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (19846) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (19846) BLE: disconnect; reason=534[0m
+[0;32mI (22846) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (22846) NimBLE: disc_mode=2[0m
+[0;32mI (22846) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (22846) NimBLE: [0m
+
+[0;32mI (22856) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (32386) BLE: connect ok; status=0[0m
+[0;32mI (32566) BLE: enc change: status=0[0m
+[0;32mI (32566) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (32776) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (32776) BLE: already bonded, skip security_initiate[0m
+[0;32mI (33886) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (34456) BLE: RX(3): BYE[0m
+[0;32mI (34456) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (34456) NimBLE: att_handle=16[0m
+
+[0;32mI (34956) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (34966) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (34966) BLE: disconnect; reason=534[0m
+[0;32mI (37966) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (37966) NimBLE: disc_mode=2[0m
+[0;32mI (37966) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (37966) NimBLE: [0m
+
+[0;32mI (37976) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (66556) BLE: connect ok; status=0[0m
+[0;32mI (66736) BLE: enc change: status=0[0m
+[0;32mI (66736) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (67036) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (67036) BLE: already bonded, skip security_initiate[0m
+[0;32mI (68236) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (69376) BLE: RX(3): BYE[0m
+[0;32mI (69376) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (69376) NimBLE: att_handle=16[0m
+
+[0;32mI (69876) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (69886) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (69886) BLE: disconnect; reason=534[0m
+[0;32mI (72886) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (72886) NimBLE: disc_mode=2[0m
+[0;32mI (72886) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (72896) NimBLE: [0m
+
+[0;32mI (72896) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (79066) BLE: connect ok; status=0[0m
+[0;32mI (79276) BLE: enc change: status=0[0m
+[0;32mI (79276) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (79516) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (79516) BLE: already bonded, skip security_initiate[0m
+[0;32mI (81046) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (81736) BLE: RX(3): BYE[0m
+[0;32mI (81736) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (81736) NimBLE: att_handle=16[0m
+
+[0;32mI (82236) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (82246) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (82246) BLE: disconnect; reason=534[0m
+[0;32mI (85246) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (85246) NimBLE: disc_mode=2[0m
+[0;32mI (85246) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (85256) NimBLE: [0m
+
+[0;32mI (85256) BLE: Advertising as "FAL_A0BD575E"[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x1564
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd24
+load:0x403cb700,len:0x2ed4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 21 2025 17:15:17[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 ota_0            OTA app          00 10 00210000 00200000[0m
+[0;32mI (85) boot:  4 ota_1            OTA app          00 11 00410000 00200000[0m
+[0;32mI (91) boot:  5 storage          Unknown data     01 83 00610000 00100000[0m
+[0;32mI (98) boot:  6 spiffs           Unknown data     01 82 00710000 00400000[0m
+[0;32mI (104) boot:  7 userdata         Unknown data     01 84 00b10000 00100000[0m
+[0;32mI (111) boot:  8 reserved         unknown          40 01 00c10000 003f0000[0m
+[0;32mI (118) boot: End of partition table[0m
+[0;32mI (121) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=17dech ( 97772) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=00027e14 vaddr=3fc9d200 size=04520h ( 17696) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0002c33c vaddr=40374000 size=03cdch ( 15580) load[0m
+[0;32mI (153) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5d7e8h (382952) map[0m
+[0;32mI (225) esp_image: segment 4: paddr=0008d810 vaddr=40377cdc size=154f0h ( 87280) load[0m
+[0;32mI (244) esp_image: segment 5: paddr=000a2d08 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (254) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (254) boot: Disabling RNG early entropy source...[0m
+[0;32mI (264) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (264) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (264) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (266) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (270) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (275) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (279) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (284) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (289) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (293) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (298) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (303) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (306) esp_psram: Speed: 40MHz[0m
+[0;32mI (309) cpu_start: Multicore app[0m
+[0;32mI (1043) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1052) cpu_start: Pro cpu start user code[0m
+[0;32mI (1052) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1052) app_init: Application information:[0m
+[0;32mI (1052) app_init: Project name:     wifi_station[0m
+[0;32mI (1057) app_init: App version:      3dfaced-dirty[0m
+[0;32mI (1061) app_init: Compile time:     Aug 21 2025 17:20:18[0m
+[0;32mI (1066) app_init: ELF file SHA256:  c04bdfb40...[0m
+[0;32mI (1071) app_init: ESP-IDF:          v5.4.2-dirty[0m
+[0;32mI (1075) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1079) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1083) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1087) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1094) heap_init: At 3FCA3CA0 len 00045A70 (278 KiB): RAM[0m
+[0;32mI (1099) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1104) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1109) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (1115) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1122) spi_flash: detected chip: generic[0m
+[0;32mI (1125) spi_flash: flash io: dio[0m
+[0;32mI (1129) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1135) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1141) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (1165) coexist: coexist rom version e7ae62f[0m
+[0;32mI (1166) main_task: Started on CPU0[0m
+[0;32mI (1176) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1176) main_task: Calling app_main()[0m
+[0;32mI (1186) uart: queue free spaces: 30[0m
+[0;32mI (1186) BLE: NVS SSID: 1623[0m
+[0;32mI (1186) BLE: NVS PWD: 361717[0m
+[0;32mI (1186) BLE: NVS CH: 4[0m
+[0;32mI (1186) BLE: NVS SP: 6[0m
+[0;32mI (1186) BLE_INIT: BT controller compile version [6cfabcd][0m
+[0;32mI (1196) BLE_LOG: Succeeded to initialize upper layer task log![0m
+[0;32mI (1196) gpio: GPIO[3]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1206) BLE_LOG: Succeeded to initialize timestamp synchronizer![0m
+[0;32mI (1216) BLE_LOG: Succeeded to initialize BLE log SPI output interface![0m
+[0;32mI (1226) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (1226) BLE_INIT: Bluetooth MAC: 30:ed:a0:bd:57:5e[0m
+[0;32mI (1236) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1276) BLE: nimble host task start[0m
+[0;32mI (1276) BLE: reg svc 0x1800 handle=1[0m
+[0;32mI (1276) BLE: reg chr 0x2a00 def=2 val=3[0m
+[0;32mI (1276) BLE: reg chr 0x2a01 def=4 val=5[0m
+[0;32mI (1276) BLE: reg svc 0x1801 handle=6[0m
+[0;32mI (1286) BLE: reg chr 0x2a05 def=7 val=8[0m
+[0;32mI (1286) BLE: reg chr 0x2b3a def=10 val=11[0m
+[0;32mI (1286) BLE: reg chr 0x2b29 def=12 val=13[0m
+[0;32mI (1296) BLE: reg svc 0100bc9a-7856-3412-f0de-bc9a78563412 handle=14[0m
+[0;32mI (1296) BLE: reg chr 00002211-eedd-ccbb-aa99-887766554433 def=15 val=16[0m
+[0;32mI (1306) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (1316) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1316) NimBLE: disc_mode=2[0m
+[0;32mI (1316) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1326) NimBLE: [0m
+
+[0;32mI (1326) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1276) main_task: Returned from app_main()[0m
+[0;32mI (5226) BLE: connect ok; status=0[0m
+[0;32mI (5966) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (5966) BLE: start security on subscribe[0m
+[0;32mI (8606) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (8606) BLE: enc change: status=0[0m
+[0;32mI (9446) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (10826) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (11876) BLE: RX(3): BYE[0m
+[0;32mI (11876) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (11876) NimBLE: att_handle=16[0m
+
+[0;32mI (12376) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (12386) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (12386) BLE: disconnect; reason=534[0m
+[0;32mI (15386) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (15386) NimBLE: disc_mode=2[0m
+[0;32mI (15386) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (15386) NimBLE: [0m
+
+[0;32mI (15396) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (20166) BLE: connect ok; status=0[0m
+[0;32mI (20346) BLE: enc change: status=0[0m
+[0;32mI (20346) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (20586) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (20586) BLE: already bonded, skip security_initiate[0m
+[0;32mI (21906) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (22866) BLE: RX(3): BYE[0m
+[0;32mI (22866) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (22866) NimBLE: att_handle=16[0m
+
+[0;32mI (23376) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (23406) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (23406) BLE: disconnect; reason=534[0m
+[0;32mI (26416) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (26416) NimBLE: disc_mode=2[0m
+[0;32mI (26416) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (26416) NimBLE: [0m
+
+[0;32mI (26416) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (32346) BLE: connect ok; status=0[0m
+[0;32mI (32526) BLE: enc change: status=0[0m
+[0;32mI (32526) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (32736) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (32736) BLE: already bonded, skip security_initiate[0m
+[0;32mI (35016) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (36426) BLE: RX(3): BYE[0m
+[0;32mI (36426) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (36426) NimBLE: att_handle=16[0m
+
+[0;32mI (36936) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (36936) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (36946) BLE: disconnect; reason=534[0m
+[0;32mI (39946) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (39946) NimBLE: disc_mode=2[0m
+[0;32mI (39946) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (39946) NimBLE: [0m
+
+[0;32mI (39956) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (71106) BLE: connect ok; status=0[0m
+[0;32mI (71286) BLE: enc change: status=0[0m
+[0;32mI (71296) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (71526) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (71536) BLE: already bonded, skip security_initiate[0m
+[0;32mI (72576) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (73066) BLE: RX(3): BYE[0m
+[0;32mI (73066) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (73066) NimBLE: att_handle=16[0m
+
+[0;32mI (73566) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (73576) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (73576) BLE: disconnect; reason=534[0m
+[0;32mI (76576) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (76576) NimBLE: disc_mode=2[0m
+[0;32mI (76576) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (76576) NimBLE: [0m
+
+[0;32mI (76586) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (85836) BLE: connect ok; status=0[0m
+[0;32mI (86016) BLE: enc change: status=0[0m
+[0;32mI (86026) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (86256) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (86266) BLE: already bonded, skip security_initiate[0m
+[0;32mI (88066) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (88926) BLE: RX(3): BYE[0m
+[0;32mI (88936) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (88936) NimBLE: att_handle=16[0m
+
+[0;32mI (89436) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (89476) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (89476) BLE: disconnect; reason=534[0m
+[0;32mI (92476) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (92476) NimBLE: disc_mode=2[0m
+[0;32mI (92476) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (92476) NimBLE: [0m
+
+[0;32mI (92486) BLE: Advertising as "FAL_A0BD575E"[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x1564
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd24
+load:0x403cb700,len:0x2ed4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 21 2025 17:15:17[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 ota_0            OTA app          00 10 00210000 00200000[0m
+[0;32mI (85) boot:  4 ota_1            OTA app          00 11 00410000 00200000[0m
+[0;32mI (91) boot:  5 storage          Unknown data     01 83 00610000 00100000[0m
+[0;32mI (98) boot:  6 spiffs           Unknown data     01 82 00710000 00400000[0m
+[0;32mI (104) boot:  7 userdata         Unknown data     01 84 00b10000 00100000[0m
+[0;32mI (111) boot:  8 reserved         unknown          40 01 00c10000 003f0000[0m
+[0;32mI (118) boot: End of partition table[0m
+[0;32mI (121) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=17dech ( 97772) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=00027e14 vaddr=3fc9d200 size=04520h ( 17696) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0002c33c vaddr=40374000 size=03cdch ( 15580) load[0m
+[0;32mI (153) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5d7e8h (382952) map[0m
+[0;32mI (225) esp_image: segment 4: paddr=0008d810 vaddr=40377cdc size=154f0h ( 87280) load[0m
+[0;32mI (244) esp_image: segment 5: paddr=000a2d08 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (254) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (254) boot: Disabling RNG early entropy source...[0m
+[0;32mI (264) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (264) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (264) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (266) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (270) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (275) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (279) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (284) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (289) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (293) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (298) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (303) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (306) esp_psram: Speed: 40MHz[0m
+[0;32mI (309) cpu_start: Multicore app[0m
+[0;32mI (1043) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1052) cpu_start: Pro cpu start user code[0m
+[0;32mI (1052) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1052) app_init: Application information:[0m
+[0;32mI (1052) app_init: Project name:     wifi_station[0m
+[0;32mI (1057) app_init: App version:      3dfaced-dirty[0m
+[0;32mI (1061) app_init: Compile time:     Aug 21 2025 17:20:18[0m
+[0;32mI (1066) app_init: ELF file SHA256:  c04bdfb40...[0m
+[0;32mI (1071) app_init: ESP-IDF:          v5.4.2-dirty[0m
+[0;32mI (1075) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1079) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1083) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1087) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1094) heap_init: At 3FCA3CA0 len 00045A70 (278 KiB): RAM[0m
+[0;32mI (1099) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1104) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1109) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (1115) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1122) spi_flash: detected chip: generic[0m
+[0;32mI (1125) spi_flash: flash io: dio[0m
+[0;32mI (1129) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1135) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1141) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (1165) coexist: coexist rom version e7ae62f[0m
+[0;32mI (1166) main_task: Started on CPU0[0m
+[0;32mI (1176) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1176) main_task: Calling app_main()[0m
+[0;32mI (1186) uart: queue free spaces: 30[0m
+[0;32mI (1186) BLE: NVS SSID: 1623[0m
+[0;32mI (1186) BLE: NVS PWD: 361717[0m
+[0;32mI (1186) BLE: NVS CH: 4[0m
+[0;32mI (1186) BLE: NVS SP: 6[0m
+[0;32mI (1186) BLE_INIT: BT controller compile version [6cfabcd][0m
+[0;32mI (1196) BLE_LOG: Succeeded to initialize upper layer task log![0m
+[0;32mI (1196) gpio: GPIO[3]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1206) BLE_LOG: Succeeded to initialize timestamp synchronizer![0m
+[0;32mI (1216) BLE_LOG: Succeeded to initialize BLE log SPI output interface![0m
+[0;32mI (1226) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (1226) BLE_INIT: Bluetooth MAC: 30:ed:a0:bd:57:5e[0m
+[0;32mI (1236) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1276) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1346) BLE: nimble host task start[0m
+[0;32mI (1356) BLE: reg svc 0x1800 handle=1[0m
+[0;32mI (1356) BLE: reg chr 0x2a00 def=2 val=3[0m
+[0;32mI (1356) BLE: reg chr 0x2a01 def=4 val=5[0m
+[0;32mI (1356) BLE: reg svc 0x1801 handle=6[0m
+[0;32mI (1356) BLE: reg chr 0x2a05 def=7 val=8[0m
+[0;32mI (1356) BLE: reg chr 0x2b3a def=10 val=11[0m
+[0;32mI (1366) BLE: reg chr 0x2b29 def=12 val=13[0m
+[0;32mI (1366) BLE: reg svc 0100bc9a-7856-3412-f0de-bc9a78563412 handle=14[0m
+[0;32mI (1376) BLE: reg chr 00002211-eedd-ccbb-aa99-887766554433 def=15 val=16[0m
+[0;32mI (1386) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (1386) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1396) NimBLE: disc_mode=2[0m
+[0;32mI (1396) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1406) NimBLE: [0m
+
+[0;32mI (1406) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1346) main_task: Returned from app_main()[0m
+[0;32mI (24626) BLE: connect ok; status=0[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x1564
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd24
+load:0x403cb700,len:0x2ed4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 21 2025 17:15:17[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 ota_0            OTA app          00 10 00210000 00200000[0m
+[0;32mI (85) boot:  4 ota_1            OTA app          00 11 00410000 00200000[0m
+[0;32mI (91) boot:  5 storage          Unknown data     01 83 00610000 00100000[0m
+[0;32mI (98) boot:  6 spiffs           Unknown data     01 82 00710000 00400000[0m
+[0;32mI (104) boot:  7 userdata         Unknown data     01 84 00b10000 00100000[0m
+[0;32mI (111) boot:  8 reserved         unknown          40 01 00c10000 003f0000[0m
+[0;32mI (118) boot: End of partition table[0m
+[0;32mI (121) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=17dech ( 97772) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=00027e14 vaddr=3fc9d200 size=04520h ( 17696) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0002c33c vaddr=40374000 size=03cdch ( 15580) load[0m
+[0;32mI (153) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5d7e8h (382952) map[0m
+[0;32mI (225) esp_image: segment 4: paddr=0008d810 vaddr=40377cdc size=154f0h ( 87280) load[0m
+[0;32mI (244) esp_image: segment 5: paddr=000a2d08 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (254) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (254) boot: Disabling RNG early entropy source...[0m
+[0;32mI (264) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (264) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (264) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (266) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (270) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (275) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (279) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (284) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (289) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (293) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (298) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (303) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (306) esp_psram: Speed: 40MHz[0m
+[0;32mI (309) cpu_start: Multicore app[0m
+[0;32mI (1043) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1052) cpu_start: Pro cpu start user code[0m
+[0;32mI (1052) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1052) app_init: Application information:[0m
+[0;32mI (1052) app_init: Project name:     wifi_station[0m
+[0;32mI (1057) app_init: App version:      3dfaced-dirty[0m
+[0;32mI (1061) app_init: Compile time:     Aug 21 2025 17:20:18[0m
+[0;32mI (1066) app_init: ELF file SHA256:  c04bdfb40...[0m
+[0;32mI (1071) app_init: ESP-IDF:          v5.4.2-dirty[0m
+[0;32mI (1075) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1079) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1083) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1087) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1094) heap_init: At 3FCA3CA0 len 00045A70 (278 KiB): RAM[0m
+[0;32mI (1099) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1104) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1109) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (1115) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1122) spi_flash: detected chip: generic[0m
+[0;32mI (1125) spi_flash: flash io: dio[0m
+[0;32mI (1129) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1135) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1141) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (1165) coexist: coexist rom version e7ae62f[0m
+[0;32mI (1166) main_task: Started on CPU0[0m
+[0;32mI (1176) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1176) main_task: Calling app_main()[0m
+[0;32mI (1186) uart: queue free spaces: 30[0m
+[0;32mI (1186) BLE: NVS SSID: 1623[0m
+[0;32mI (1186) BLE: NVS PWD: 361717[0m
+[0;32mI (1186) BLE: NVS CH: 4[0m
+[0;32mI (1186) BLE: NVS SP: 6[0m
+[0;32mI (1186) BLE_INIT: BT controller compile version [6cfabcd][0m
+[0;32mI (1196) BLE_LOG: Succeeded to initialize upper layer task log![0m
+[0;32mI (1196) gpio: GPIO[3]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1206) BLE_LOG: Succeeded to initialize timestamp synchronizer![0m
+[0;32mI (1216) BLE_LOG: Succeeded to initialize BLE log SPI output interface![0m
+[0;32mI (1226) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (1226) BLE_INIT: Bluetooth MAC: 30:ed:a0:bd:57:5e[0m
+[0;32mI (1236) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1276) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1296) BLE: nimble host task start[0m
+[0;32mI (1296) BLE: reg svc 0x1800 handle=1[0m
+[0;32mI (1296) BLE: reg chr 0x2a00 def=2 val=3[0m
+[0;32mI (1296) BLE: reg chr 0x2a01 def=4 val=5[0m
+[0;32mI (1296) BLE: reg svc 0x1801 handle=6[0m
+[0;32mI (1296) BLE: reg chr 0x2a05 def=7 val=8[0m
+[0;32mI (1306) BLE: reg chr 0x2b3a def=10 val=11[0m
+[0;32mI (1306) BLE: reg chr 0x2b29 def=12 val=13[0m
+[0;32mI (1306) BLE: reg svc 0100bc9a-7856-3412-f0de-bc9a78563412 handle=14[0m
+[0;32mI (1316) BLE: reg chr 00002211-eedd-ccbb-aa99-887766554433 def=15 val=16[0m
+[0;32mI (1326) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (1326) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1336) NimBLE: disc_mode=2[0m
+[0;32mI (1336) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1346) NimBLE: [0m
+
+[0;32mI (1346) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1296) main_task: Returned from app_main()[0m
+[0;32mI (5696) BLE: connect ok; status=0[0m
+[0;32mI (6446) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (6446) BLE: start security on subscribe[0m
+[0;32mI (9956) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (9956) BLE: enc change: status=0[0m
+[0;32mI (10826) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (11726) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (13526) BLE: RX(3): BYE[0m
+[0;32mI (13526) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (13526) NimBLE: att_handle=16[0m
+
+[0;32mI (14026) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (14036) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (14036) BLE: disconnect; reason=534[0m
+[0;32mI (17036) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (17036) NimBLE: disc_mode=2[0m
+[0;32mI (17036) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (17036) NimBLE: [0m
+
+[0;32mI (17046) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (150776) BLE: connect ok; status=0[0m
+[0;32mI (150956) BLE: enc change: status=0[0m
+[0;32mI (150956) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (151166) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (151166) BLE: already bonded, skip security_initiate[0m
+[0;32mI (152156) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (152846) BLE: RX(3): BYE[0m
+[0;32mI (152846) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (152846) NimBLE: att_handle=16[0m
+
+[0;32mI (153346) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (153356) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (153356) BLE: disconnect; reason=534[0m
+[0;32mI (156366) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (156366) NimBLE: disc_mode=2[0m
+[0;32mI (156366) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (156366) NimBLE: [0m
+
+[0;32mI (156376) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (179126) BLE: connect ok; status=0[0m
+[0;32mI (179336) BLE: enc change: status=0[0m
+[0;32mI (179336) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (179576) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (179576) BLE: already bonded, skip security_initiate[0m
+[0;32mI (180536) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (181196) BLE: RX(3): BYE[0m
+[0;32mI (181196) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (181196) NimBLE: att_handle=16[0m
+
+[0;32mI (181706) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (181706) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (181716) BLE: disconnect; reason=534[0m
+[0;32mI (184716) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (184716) NimBLE: disc_mode=2[0m
+[0;32mI (184716) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (184716) NimBLE: [0m
+
+[0;32mI (184726) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (189266) BLE: connect ok; status=0[0m
+[0;32mI (189446) BLE: enc change: status=0[0m
+[0;32mI (189446) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (189686) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (189686) BLE: already bonded, skip security_initiate[0m
+[0;32mI (191306) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (196526) BLE: RX(3): BYE[0m
+[0;32mI (196526) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (196536) NimBLE: att_handle=16[0m
+
+[0;32mI (197036) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (197046) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (197046) BLE: disconnect; reason=534[0m
+[0;32mI (200046) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (200046) NimBLE: disc_mode=2[0m
+[0;32mI (200046) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (200046) NimBLE: [0m
+
+[0;32mI (200056) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (205706) BLE: connect ok; status=0[0m
+[0;32mI (205886) BLE: enc change: status=0[0m
+[0;32mI (205886) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (206126) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (206136) BLE: already bonded, skip security_initiate[0m
+[0;32mI (207566) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (208556) BLE: RX(3): BYE[0m
+[0;32mI (208566) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (208566) NimBLE: att_handle=16[0m
+
+[0;32mI (209066) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (209076) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (209076) BLE: disconnect; reason=534[0m
+[0;32mI (212076) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (212076) NimBLE: disc_mode=2[0m
+[0;32mI (212076) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (212076) NimBLE: [0m
+
+[0;32mI (212086) BLE: Advertising as "FAL_A0BD575E"[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x1564
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd24
+load:0x403cb700,len:0x2ed4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 21 2025 17:15:17[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 ota_0            OTA app          00 10 00210000 00200000[0m
+[0;32mI (85) boot:  4 ota_1            OTA app          00 11 00410000 00200000[0m
+[0;32mI (91) boot:  5 storage          Unknown data     01 83 00610000 00100000[0m
+[0;32mI (98) boot:  6 spiffs           Unknown data     01 82 00710000 00400000[0m
+[0;32mI (104) boot:  7 userdata         Unknown data     01 84 00b10000 00100000[0m
+[0;32mI (111) boot:  8 reserved         unknown          40 01 00c10000 003f0000[0m
+[0;32mI (118) boot: End of partition table[0m
+[0;32mI (121) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=17dech ( 97772) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=00027e14 vaddr=3fc9d200 size=04520h ( 17696) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0002c33c vaddr=40374000 size=03cdch ( 15580) load[0m
+[0;32mI (153) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5d7e8h (382952) map[0m
+[0;32mI (225) esp_image: segment 4: paddr=0008d810 vaddr=40377cdc size=154f0h ( 87280) load[0m
+[0;32mI (244) esp_image: segment 5: paddr=000a2d08 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (254) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (254) boot: Disabling RNG early entropy source...[0m
+[0;32mI (264) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (264) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (264) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (266) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (270) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (275) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (279) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (284) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (289) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (293) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (298) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (303) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (306) esp_psram: Speed: 40MHz[0m
+[0;32mI (309) cpu_start: Multicore app[0m
+[0;32mI (1043) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1052) cpu_start: Pro cpu start user code[0m
+[0;32mI (1052) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1052) app_init: Application information:[0m
+[0;32mI (1052) app_init: Project name:     wifi_station[0m
+[0;32mI (1057) app_init: App version:      3dfaced-dirty[0m
+[0;32mI (1061) app_init: Compile time:     Aug 21 2025 17:20:18[0m
+[0;32mI (1066) app_init: ELF file SHA256:  c04bdfb40...[0m
+[0;32mI (1071) app_init: ESP-IDF:          v5.4.2-dirty[0m
+[0;32mI (1075) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1079) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1083) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1087) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1094) heap_init: At 3FCA3CA0 len 00045A70 (278 KiB): RAM[0m
+[0;32mI (1099) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1104) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1109) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (1115) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1122) spi_flash: detected chip: generic[0m
+[0;32mI (1125) spi_flash: flash io: dio[0m
+[0;32mI (1129) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1135) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1141) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (1165) coexist: coexist rom version e7ae62f[0m
+[0;32mI (1166) main_task: Started on CPU0[0m
+[0;32mI (1176) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1176) main_task: Calling app_main()[0m
+[0;32mI (1186) uart: queue free spaces: 30[0m
+[0;32mI (1186) BLE: NVS SSID: 1623[0m
+[0;32mI (1186) BLE: NVS PWD: 361717[0m
+[0;32mI (1186) BLE: NVS CH: 4[0m
+[0;32mI (1186) BLE: NVS SP: 6[0m
+[0;32mI (1186) BLE_INIT: BT controller compile version [6cfabcd][0m
+[0;32mI (1196) BLE_LOG: Succeeded to initialize upper layer task log![0m
+[0;32mI (1196) gpio: GPIO[3]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1206) BLE_LOG: Succeeded to initialize timestamp synchronizer![0m
+[0;32mI (1216) BLE_LOG: Succeeded to initialize BLE log SPI output interface![0m
+[0;32mI (1226) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (1226) BLE_INIT: Bluetooth MAC: 30:ed:a0:bd:57:5e[0m
+[0;32mI (1236) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1276) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1346) BLE: nimble host task start[0m
+[0;32mI (1346) BLE: reg svc 0x1800 handle=1[0m
+[0;32mI (1356) BLE: reg chr 0x2a00 def=2 val=3[0m
+[0;32mI (1356) BLE: reg chr 0x2a01 def=4 val=5[0m
+[0;32mI (1356) BLE: reg svc 0x1801 handle=6[0m
+[0;32mI (1356) BLE: reg chr 0x2a05 def=7 val=8[0m
+[0;32mI (1356) BLE: reg chr 0x2b3a def=10 val=11[0m
+[0;32mI (1366) BLE: reg chr 0x2b29 def=12 val=13[0m
+[0;32mI (1366) BLE: reg svc 0100bc9a-7856-3412-f0de-bc9a78563412 handle=14[0m
+[0;32mI (1376) BLE: reg chr 00002211-eedd-ccbb-aa99-887766554433 def=15 val=16[0m
+[0;32mI (1386) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (1386) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1386) NimBLE: disc_mode=2[0m
+[0;32mI (1396) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1406) NimBLE: [0m
+
+[0;32mI (1406) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1346) main_task: Returned from app_main()[0m
+[0;32mI (7056) BLE: connect ok; status=0[0m
+[0;32mI (7766) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (7766) BLE: start security on subscribe[0m
+[0;32mI (11396) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (11396) BLE: enc change: status=0[0m
+[0;32mI (12236) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (15446) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (16136) BLE: RX(3): BYE[0m
+[0;32mI (16136) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (16136) NimBLE: att_handle=16[0m
+
+[0;32mI (16636) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (16646) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (16646) BLE: disconnect; reason=534[0m
+[0;32mI (19646) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (19646) NimBLE: disc_mode=2[0m
+[0;32mI (19646) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (19646) NimBLE: [0m
+
+[0;32mI (19656) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (27336) BLE: connect ok; status=0[0m
+[0;32mI (27516) BLE: enc change: status=0[0m
+[0;32mI (27526) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (27726) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (27736) BLE: already bonded, skip security_initiate[0m
+[0;32mI (28686) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (29556) BLE: RX(3): BYE[0m
+[0;32mI (29566) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (29566) NimBLE: att_handle=16[0m
+
+[0;32mI (30066) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (30076) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (30076) BLE: disconnect; reason=534[0m
+[0;32mI (33076) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (33076) NimBLE: disc_mode=2[0m
+[0;32mI (33076) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (33076) NimBLE: [0m
+
+[0;32mI (33086) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (37386) BLE: connect ok; status=0[0m
+[0;32mI (37566) BLE: enc change: status=0[0m
+[0;32mI (37576) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (37776) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (37786) BLE: already bonded, skip security_initiate[0m
+[0;32mI (39246) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (39666) BLE: RX(3): BYE[0m
+[0;32mI (39676) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (39676) NimBLE: att_handle=16[0m
+
+[0;32mI (40176) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (40186) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (40186) BLE: disconnect; reason=534[0m
+[0;32mI (43186) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (43186) NimBLE: disc_mode=2[0m
+[0;32mI (43186) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (43186) NimBLE: [0m
+
+[0;32mI (43196) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (138646) BLE: connect ok; status=0[0m
+[0;32mI (138826) BLE: enc change: status=0[0m
+[0;32mI (138826) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (139096) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (139096) BLE: already bonded, skip security_initiate[0m
+[0;32mI (140386) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (141436) BLE: RX(3): BYE[0m
+[0;32mI (141436) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (141436) NimBLE: att_handle=16[0m
+
+[0;32mI (141936) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (141946) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (141946) BLE: disconnect; reason=534[0m
+[0;32mI (144946) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (144946) NimBLE: disc_mode=2[0m
+[0;32mI (144946) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (144956) NimBLE: [0m
+
+[0;32mI (144956) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (150646) BLE: connect ok; status=0[0m
+[0;32mI (150826) BLE: enc change: status=0[0m
+[0;32mI (150826) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (151066) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (151066) BLE: already bonded, skip security_initiate[0m
+[0;32mI (180736) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (181456) BLE: RX(3): BYE[0m
+[0;32mI (181456) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (181456) NimBLE: att_handle=16[0m
+
+[0;32mI (181956) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (181966) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (181966) BLE: disconnect; reason=534[0m
+[0;32mI (184966) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (184966) NimBLE: disc_mode=2[0m
+[0;32mI (184966) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (184976) NimBLE: [0m
+
+[0;32mI (184976) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (189526) BLE: connect ok; status=0[0m
+[0;32mI (189706) BLE: enc change: status=0[0m
+[0;32mI (189706) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (189946) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (189946) BLE: already bonded, skip security_initiate[0m
+[0;32mI (193576) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (194506) BLE: RX(3): BYE[0m
+[0;32mI (194506) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (194506) NimBLE: att_handle=16[0m
+
+[0;32mI (195006) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (195016) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (195016) BLE: disconnect; reason=534[0m
+[0;32mI (198016) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (198016) NimBLE: disc_mode=2[0m
+[0;32mI (198016) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (198026) NimBLE: [0m
+
+[0;32mI (198026) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (363826) BLE: connect ok; status=0[0m
+[0;32mI (364006) BLE: enc change: status=0[0m
+[0;32mI (364006) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (364306) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (364306) BLE: already bonded, skip security_initiate[0m
+[0;32mI (365506) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (366556) BLE: RX(3): BYE[0m
+[0;32mI (366556) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (366556) NimBLE: att_handle=16[0m
+
+[0;32mI (367056) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (367066) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (367066) BLE: disconnect; reason=534[0m
+[0;32mI (370066) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (370066) NimBLE: disc_mode=2[0m
+[0;32mI (370066) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (370076) NimBLE: [0m
+
+[0;32mI (370076) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (374836) BLE: connect ok; status=0[0m
+[0;32mI (375016) BLE: enc change: status=0[0m
+[0;32mI (375016) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (375256) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (375256) BLE: already bonded, skip security_initiate[0m
+[0;32mI (377836) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (381586) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (381586) BLE: already bonded, skip security_initiate[0m
+[0;32mI (383266) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (385156) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (385156) BLE: already bonded, skip security_initiate[0m
+[0;32mI (386356) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (387466) BLE: RX(3): BYE[0m
+[0;32mI (387466) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (387466) NimBLE: att_handle=16[0m
+
+[0;32mI (387966) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (387976) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (387976) BLE: disconnect; reason=534[0m
+[0;32mI (390976) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (390976) NimBLE: disc_mode=2[0m
+[0;32mI (390976) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (390986) NimBLE: [0m
+
+[0;32mI (390986) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (394216) BLE: connect ok; status=0[0m
+[0;32mI (394396) BLE: enc change: status=0[0m
+[0;32mI (394396) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (394606) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (394606) BLE: already bonded, skip security_initiate[0m
+[0;32mI (395656) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (396496) BLE: RX(3): BYE[0m
+[0;32mI (396496) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (396496) NimBLE: att_handle=16[0m
+
+[0;32mI (396996) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (397006) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (397006) BLE: disconnect; reason=534[0m
+[0;32mI (400006) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (400006) NimBLE: disc_mode=2[0m
+[0;32mI (400006) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (400016) NimBLE: [0m
+
+[0;32mI (400016) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (405256) BLE: connect ok; status=0[0m
+[0;32mI (405436) BLE: enc change: status=0[0m
+[0;32mI (405436) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (405646) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (405646) BLE: already bonded, skip security_initiate[0m
+[0;32mI (407146) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (408166) BLE: RX(3): BYE[0m
+[0;32mI (408166) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (408166) NimBLE: att_handle=16[0m
+
+[0;32mI (408666) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (408676) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (408676) BLE: disconnect; reason=534[0m
+[0;32mI (411676) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (411676) NimBLE: disc_mode=2[0m
+[0;32mI (411676) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (411686) NimBLE: [0m
+
+[0;32mI (411686) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (414196) BLE: connect ok; status=0[0m
+[0;32mI (414376) BLE: enc change: status=0[0m
+[0;32mI (414376) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (414586) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (414586) BLE: already bonded, skip security_initiate[0m
+[0;32mI (415756) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (417166) BLE: RX(3): BYE[0m
+[0;32mI (417166) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (417166) NimBLE: att_handle=16[0m
+
+[0;32mI (417666) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (417676) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (417676) BLE: disconnect; reason=534[0m
+[0;32mI (420676) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (420676) NimBLE: disc_mode=2[0m
+[0;32mI (420676) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (420686) NimBLE: [0m
+
+[0;32mI (420686) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (483016) BLE: connect ok; status=0[0m
+[0;32mI (483196) BLE: enc change: status=0[0m
+[0;32mI (483196) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (483406) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (483406) BLE: already bonded, skip security_initiate[0m
+[0;32mI (484366) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (484906) BLE: RX(3): BYE[0m
+[0;32mI (484906) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (484906) NimBLE: att_handle=16[0m
+
+[0;32mI (485406) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (485416) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (485416) BLE: disconnect; reason=534[0m
+[0;32mI (488416) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (488416) NimBLE: disc_mode=2[0m
+[0;32mI (488416) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (488426) NimBLE: [0m
+
+[0;32mI (488426) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (507376) BLE: connect ok; status=0[0m
+[0;32mI (507556) BLE: enc change: status=0[0m
+[0;32mI (507556) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (507796) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (507796) BLE: already bonded, skip security_initiate[0m
+[0;32mI (508936) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (509656) BLE: RX(3): BYE[0m
+[0;32mI (509656) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (509656) NimBLE: att_handle=16[0m
+
+[0;32mI (510156) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (510166) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (510166) BLE: disconnect; reason=534[0m
+[0;32mI (513166) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (513166) NimBLE: disc_mode=2[0m
+[0;32mI (513166) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (513176) NimBLE: [0m
+
+[0;32mI (513176) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (546046) BLE: connect ok; status=0[0m
+[0;32mI (546226) BLE: enc change: status=0[0m
+[0;32mI (546226) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (546466) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (546466) BLE: already bonded, skip security_initiate[0m
+[0;32mI (547696) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (548716) BLE: RX(3): BYE[0m
+[0;32mI (548716) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (548716) NimBLE: att_handle=16[0m
+
+[0;32mI (549216) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (549226) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (549226) BLE: disconnect; reason=534[0m
+[0;32mI (552226) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (552236) NimBLE: disc_mode=2[0m
+[0;32mI (552236) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (552236) NimBLE: [0m
+
+[0;32mI (552236) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (557026) BLE: connect ok; status=0[0m
+[0;32mI (557206) BLE: enc change: status=0[0m
+[0;32mI (557206) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (557446) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (557446) BLE: already bonded, skip security_initiate[0m
+[0;32mI (567166) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (567766) BLE: RX(3): BYE[0m
+[0;32mI (567766) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (567766) NimBLE: att_handle=16[0m
+
+[0;32mI (568266) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (568276) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (568276) BLE: disconnect; reason=534[0m
+[0;32mI (571286) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (571286) NimBLE: disc_mode=2[0m
+[0;32mI (571286) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (571286) NimBLE: [0m
+
+[0;32mI (571286) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (575386) BLE: connect ok; status=0[0m
+[0;32mI (575566) BLE: enc change: status=0[0m
+[0;32mI (575566) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (575776) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (575776) BLE: already bonded, skip security_initiate[0m
+[0;32mI (577516) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (579766) BLE: RX(3): BYE[0m
+[0;32mI (579766) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (579766) NimBLE: att_handle=16[0m
+
+[0;32mI (580266) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (580276) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (580276) BLE: disconnect; reason=534[0m
+[0;32mI (583286) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (583286) NimBLE: disc_mode=2[0m
+[0;32mI (583286) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (583286) NimBLE: [0m
+
+[0;32mI (583286) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (592546) BLE: connect ok; status=0[0m
+[0;32mI (592726) BLE: enc change: status=0[0m
+[0;32mI (592726) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (592996) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (592996) BLE: already bonded, skip security_initiate[0m
+[0;32mI (594256) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (595366) BLE: RX(3): BYE[0m
+[0;32mI (595366) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (595366) NimBLE: att_handle=16[0m
+
+[0;32mI (595866) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (595876) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (595876) BLE: disconnect; reason=534[0m
+[0;32mI (598886) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (598886) NimBLE: disc_mode=2[0m
+[0;32mI (598886) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (598886) NimBLE: [0m
+
+[0;32mI (598886) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (602746) BLE: connect ok; status=0[0m
+[0;32mI (602926) BLE: enc change: status=0[0m
+[0;32mI (602926) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (603166) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (603166) BLE: already bonded, skip security_initiate[0m
+[0;32mI (604546) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (604906) BLE: RX(3): BYE[0m
+[0;32mI (604906) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (604906) NimBLE: att_handle=16[0m
+
+[0;32mI (605406) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (605416) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (605416) BLE: disconnect; reason=534[0m
+[0;32mI (608426) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (608426) NimBLE: disc_mode=2[0m
+[0;32mI (608426) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (608426) NimBLE: [0m
+
+[0;32mI (608426) BLE: Advertising as "FAL_A0BD575E"[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x1564
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd24
+load:0x403cb700,len:0x2ed4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 21 2025 17:15:17[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 ota_0            OTA app          00 10 00210000 00200000[0m
+[0;32mI (85) boot:  4 ota_1            OTA app          00 11 00410000 00200000[0m
+[0;32mI (91) boot:  5 storage          Unknown data     01 83 00610000 00100000[0m
+[0;32mI (98) boot:  6 spiffs           Unknown data     01 82 00710000 00400000[0m
+[0;32mI (104) boot:  7 userdata         Unknown data     01 84 00b10000 00100000[0m
+[0;32mI (111) boot:  8 reserved         unknown          40 01 00c10000 003f0000[0m
+[0;32mI (118) boot: End of partition table[0m
+[0;32mI (121) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=17dech ( 97772) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=00027e14 vaddr=3fc9d200 size=04520h ( 17696) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0002c33c vaddr=40374000 size=03cdch ( 15580) load[0m
+[0;32mI (153) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5d7e8h (382952) map[0m
+[0;32mI (225) esp_image: segment 4: paddr=0008d810 vaddr=40377cdc size=154f0h ( 87280) load[0m
+[0;32mI (244) esp_image: segment 5: paddr=000a2d08 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (254) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (254) boot: Disabling RNG early entropy source...[0m
+[0;32mI (264) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (264) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (264) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (266) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (270) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (275) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (279) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (284) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (289) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (293) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (298) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (303) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (306) esp_psram: Speed: 40MHz[0m
+[0;32mI (309) cpu_start: Multicore app[0m
+[0;32mI (1043) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1052) cpu_start: Pro cpu start user code[0m
+[0;32mI (1052) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1052) app_init: Application information:[0m
+[0;32mI (1052) app_init: Project name:     wifi_station[0m
+[0;32mI (1057) app_init: App version:      3dfaced-dirty[0m
+[0;32mI (1061) app_init: Compile time:     Aug 21 2025 17:20:18[0m
+[0;32mI (1066) app_init: ELF file SHA256:  c04bdfb40...[0m
+[0;32mI (1071) app_init: ESP-IDF:          v5.4.2-dirty[0m
+[0;32mI (1075) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1079) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1083) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1087) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1094) heap_init: At 3FCA3CA0 len 00045A70 (278 KiB): RAM[0m
+[0;32mI (1099) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1104) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1109) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (1115) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1122) spi_flash: detected chip: generic[0m
+[0;32mI (1125) spi_flash: flash io: dio[0m
+[0;32mI (1129) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1135) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1141) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (1165) coexist: coexist rom version e7ae62f[0m
+[0;32mI (1166) main_task: Started on CPU0[0m
+[0;32mI (1176) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1176) main_task: Calling app_main()[0m
+[0;32mI (1186) uart: queue free spaces: 30[0m
+[0;32mI (1186) BLE: NVS SSID: 1623[0m
+[0;32mI (1186) BLE: NVS PWD: 361717[0m
+[0;32mI (1186) BLE: NVS CH: 4[0m
+[0;32mI (1186) BLE: NVS SP: 6[0m
+[0;32mI (1186) BLE_INIT: BT controller compile version [6cfabcd][0m
+[0;32mI (1196) BLE_LOG: Succeeded to initialize upper layer task log![0m
+[0;32mI (1196) gpio: GPIO[3]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1206) BLE_LOG: Succeeded to initialize timestamp synchronizer![0m
+[0;32mI (1216) BLE_LOG: Succeeded to initialize BLE log SPI output interface![0m
+[0;32mI (1226) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (1226) BLE_INIT: Bluetooth MAC: 30:ed:a0:bd:57:5e[0m
+[0;32mI (1236) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1276) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1296) BLE: nimble host task start[0m
+[0;32mI (1296) BLE: reg svc 0x1800 handle=1[0m
+[0;32mI (1296) BLE: reg chr 0x2a00 def=2 val=3[0m
+[0;32mI (1296) BLE: reg chr 0x2a01 def=4 val=5[0m
+[0;32mI (1296) BLE: reg svc 0x1801 handle=6[0m
+[0;32mI (1296) BLE: reg chr 0x2a05 def=7 val=8[0m
+[0;32mI (1306) BLE: reg chr 0x2b3a def=10 val=11[0m
+[0;32mI (1306) BLE: reg chr 0x2b29 def=12 val=13[0m
+[0;32mI (1306) BLE: reg svc 0100bc9a-7856-3412-f0de-bc9a78563412 handle=14[0m
+[0;32mI (1316) BLE: reg chr 00002211-eedd-ccbb-aa99-887766554433 def=15 val=16[0m
+[0;32mI (1326) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (1326) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1336) NimBLE: disc_mode=2[0m
+[0;32mI (1336) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1346) NimBLE: [0m
+
+[0;32mI (1346) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1296) main_task: Returned from app_main()[0m
+[0;32mI (4546) BLE: connect ok; status=0[0m
+[0;32mI (5266) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (5276) BLE: start security on subscribe[0m
+[0;32mI (8306) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (8306) BLE: enc change: status=0[0m
+[0;32mI (9136) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (11036) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (13706) BLE: RX(3): BYE[0m
+[0;32mI (13706) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (13706) NimBLE: att_handle=16[0m
+
+[0;32mI (14206) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (14216) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (14216) BLE: disconnect; reason=534[0m
+[0;32mI (17216) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (17216) NimBLE: disc_mode=2[0m
+[0;32mI (17216) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (17216) NimBLE: [0m
+
+[0;32mI (17226) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (19756) BLE: connect ok; status=0[0m
+[0;32mI (19936) BLE: enc change: status=0[0m
+[0;32mI (19936) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (20176) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (20176) BLE: already bonded, skip security_initiate[0m
+[0;32mI (21256) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (21766) BLE: RX(3): BYE[0m
+[0;32mI (21766) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (21766) NimBLE: att_handle=16[0m
+
+[0;32mI (22266) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (22276) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (22276) BLE: disconnect; reason=534[0m
+[0;32mI (25276) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (25276) NimBLE: disc_mode=2[0m
+[0;32mI (25276) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (25286) NimBLE: [0m
+
+[0;32mI (25286) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (135016) BLE: connect ok; status=0[0m
+[0;32mI (135196) BLE: enc change: status=0[0m
+[0;32mI (135196) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (135406) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (135406) BLE: already bonded, skip security_initiate[0m
+[0;32mI (137116) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (138136) BLE: RX(3): BYE[0m
+[0;32mI (138136) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (138136) NimBLE: att_handle=16[0m
+
+[0;32mI (138636) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (138646) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (138646) BLE: disconnect; reason=534[0m
+[0;32mI (141656) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (141656) NimBLE: disc_mode=2[0m
+[0;32mI (141656) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (141656) NimBLE: [0m
+
+[0;32mI (141656) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (145066) BLE: connect ok; status=0[0m
+[0;32mI (145246) BLE: enc change: status=0[0m
+[0;32mI (145246) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (145456) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (145456) BLE: already bonded, skip security_initiate[0m
+[0;32mI (147136) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (148186) BLE: RX(3): BYE[0m
+[0;32mI (148186) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (148186) NimBLE: att_handle=16[0m
+
+[0;32mI (148686) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (148696) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (148696) BLE: disconnect; reason=534[0m
+[0;32mI (151706) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (151706) NimBLE: disc_mode=2[0m
+[0;32mI (151706) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (151706) NimBLE: [0m
+
+[0;32mI (151706) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (170176) BLE: connect ok; status=0[0m
+[0;32mI (170356) BLE: enc change: status=0[0m
+[0;32mI (170356) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (170566) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (170566) BLE: already bonded, skip security_initiate[0m
+[0;32mI (171886) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (172606) BLE: RX(3): BYE[0m
+[0;32mI (172606) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (172606) NimBLE: att_handle=16[0m
+
+[0;32mI (173106) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (173116) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (173126) BLE: disconnect; reason=534[0m
+[0;32mI (176126) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (176126) NimBLE: disc_mode=2[0m
+[0;32mI (176126) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (176126) NimBLE: [0m
+
+[0;32mI (176136) BLE: Advertising as "FAL_A0BD575E"[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x1564
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd24
+load:0x403cb700,len:0x2ed4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 21 2025 17:15:17[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 ota_0            OTA app          00 10 00210000 00200000[0m
+[0;32mI (85) boot:  4 ota_1            OTA app          00 11 00410000 00200000[0m
+[0;32mI (91) boot:  5 storage          Unknown data     01 83 00610000 00100000[0m
+[0;32mI (98) boot:  6 spiffs           Unknown data     01 82 00710000 00400000[0m
+[0;32mI (104) boot:  7 userdata         Unknown data     01 84 00b10000 00100000[0m
+[0;32mI (111) boot:  8 reserved         unknown          40 01 00c10000 003f0000[0m
+[0;32mI (118) boot: End of partition table[0m
+[0;32mI (121) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=17dech ( 97772) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=00027e14 vaddr=3fc9d200 size=04520h ( 17696) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0002c33c vaddr=40374000 size=03cdch ( 15580) load[0m
+[0;32mI (153) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5d7e8h (382952) map[0m
+[0;32mI (225) esp_image: segment 4: paddr=0008d810 vaddr=40377cdc size=154f0h ( 87280) load[0m
+[0;32mI (244) esp_image: segment 5: paddr=000a2d08 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (254) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (254) boot: Disabling RNG early entropy source...[0m
+[0;32mI (264) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (264) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (264) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (266) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (270) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (275) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (279) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (284) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (289) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (293) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (298) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (303) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (306) esp_psram: Speed: 40MHz[0m
+[0;32mI (309) cpu_start: Multicore app[0m
+[0;32mI (1043) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1052) cpu_start: Pro cpu start user code[0m
+[0;32mI (1052) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1052) app_init: Application information:[0m
+[0;32mI (1052) app_init: Project name:     wifi_station[0m
+[0;32mI (1057) app_init: App version:      3dfaced-dirty[0m
+[0;32mI (1061) app_init: Compile time:     Aug 21 2025 17:20:18[0m
+[0;32mI (1066) app_init: ELF file SHA256:  c04bdfb40...[0m
+[0;32mI (1071) app_init: ESP-IDF:          v5.4.2-dirty[0m
+[0;32mI (1075) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1079) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1083) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1087) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1094) heap_init: At 3FCA3CA0 len 00045A70 (278 KiB): RAM[0m
+[0;32mI (1099) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1104) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1109) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (1115) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1122) spi_flash: detected chip: generic[0m
+[0;32mI (1125) spi_flash: flash io: dio[0m
+[0;32mI (1129) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1135) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1141) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (1165) coexist: coexist rom version e7ae62f[0m
+[0;32mI (1166) main_task: Started on CPU0[0m
+[0;32mI (1176) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1176) main_task: Calling app_main()[0m
+[0;32mI (1186) uart: queue free spaces: 30[0m
+[0;32mI (1186) BLE: NVS SSID: 1623[0m
+[0;32mI (1186) BLE: NVS PWD: 361717[0m
+[0;32mI (1186) BLE: NVS CH: 4[0m
+[0;32mI (1186) BLE: NVS SP: 6[0m
+[0;32mI (1186) BLE_INIT: BT controller compile version [6cfabcd][0m
+[0;32mI (1196) BLE_LOG: Succeeded to initialize upper layer task log![0m
+[0;32mI (1196) gpio: GPIO[3]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1206) BLE_LOG: Succeeded to initialize timestamp synchronizer![0m
+[0;32mI (1216) BLE_LOG: Succeeded to initialize BLE log SPI output interface![0m
+[0;32mI (1226) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (1226) BLE_INIT: Bluetooth MAC: 30:ed:a0:bd:57:5e[0m
+[0;32mI (1236) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1276) BLE: nimble host task start[0m
+[0;32mI (1276) BLE: reg svc 0x1800 handle=1[0m
+[0;32mI (1276) BLE: reg chr 0x2a00 def=2 val=3[0m
+[0;32mI (1276) BLE: reg chr 0x2a01 def=4 val=5[0m
+[0;32mI (1276) BLE: reg svc 0x1801 handle=6[0m
+[0;32mI (1286) BLE: reg chr 0x2a05 def=7 val=8[0m
+[0;32mI (1286) BLE: reg chr 0x2b3a def=10 val=11[0m
+[0;32mI (1286) BLE: reg chr 0x2b29 def=12 val=13[0m
+[0;32mI (1296) BLE: reg svc 0100bc9a-7856-3412-f0de-bc9a78563412 handle=14[0m
+[0;32mI (1296) BLE: reg chr 00002211-eedd-ccbb-aa99-887766554433 def=15 val=16[0m
+[0;32mI (1276) main_task: Returned from app_main()[0m
+[0;32mI (1306) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (1316) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1316) NimBLE: disc_mode=2[0m
+[0;32mI (1326) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1336) NimBLE: [0m
+
+[0;32mI (1336) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (17596) BLE: connect ok; status=0[0m
+[0;32mI (18356) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (18356) BLE: start security on subscribe[0m
+[0;32mI (21176) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (21176) BLE: enc change: status=0[0m
+[0;32mI (22046) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (22616) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (23216) BLE: RX(3): BYE[0m
+[0;32mI (23216) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (23216) NimBLE: att_handle=16[0m
+
+[0;32mI (23716) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (23726) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (23726) BLE: disconnect; reason=534[0m
+[0;32mI (26726) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (26726) NimBLE: disc_mode=2[0m
+[0;32mI (26726) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (26736) NimBLE: [0m
+
+[0;32mI (26736) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (62566) BLE: connect ok; status=0[0m
+[0;32mI (62746) BLE: enc change: status=0[0m
+[0;32mI (62746) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (62986) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (62986) BLE: already bonded, skip security_initiate[0m
+[0;32mI (64306) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (66736) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (66736) BLE: disconnect; reason=531[0m
+[0;32mI (69736) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (69736) NimBLE: disc_mode=2[0m
+[0;32mI (69736) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (69746) NimBLE: [0m
+
+[0;32mI (69746) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (69786) BLE: connect ok; status=0[0m
+[0;32mI (69966) BLE: enc change: status=0[0m
+[0;32mI (69966) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (70206) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (70206) BLE: already bonded, skip security_initiate[0m
+[0;32mI (72096) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (74046) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (74046) BLE: disconnect; reason=531[0m
+[0;32mI (77046) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (77046) NimBLE: disc_mode=2[0m
+[0;32mI (77046) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (77056) NimBLE: [0m
+
+[0;32mI (77056) BLE: Advertising as "FAL_A0BD575E"[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x1564
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd24
+load:0x403cb700,len:0x2ed4
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 21 2025 17:15:17[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (28) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  3 ota_0            OTA app          00 10 00210000 00200000[0m
+[0;32mI (85) boot:  4 ota_1            OTA app          00 11 00410000 00200000[0m
+[0;32mI (91) boot:  5 storage          Unknown data     01 83 00610000 00100000[0m
+[0;32mI (98) boot:  6 spiffs           Unknown data     01 82 00710000 00400000[0m
+[0;32mI (104) boot:  7 userdata         Unknown data     01 84 00b10000 00100000[0m
+[0;32mI (111) boot:  8 reserved         unknown          40 01 00c10000 003f0000[0m
+[0;32mI (118) boot: End of partition table[0m
+[0;32mI (121) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=17dech ( 97772) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=00027e14 vaddr=3fc9d200 size=04520h ( 17696) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=0002c33c vaddr=40374000 size=03cdch ( 15580) load[0m
+[0;32mI (153) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5d7e8h (382952) map[0m
+[0;32mI (225) esp_image: segment 4: paddr=0008d810 vaddr=40377cdc size=154f0h ( 87280) load[0m
+[0;32mI (244) esp_image: segment 5: paddr=000a2d08 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (254) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (254) boot: Disabling RNG early entropy source...[0m
+[0;32mI (264) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (264) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (264) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (266) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (270) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (275) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (279) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (284) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (289) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (293) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (298) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (303) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (306) esp_psram: Speed: 40MHz[0m
+[0;32mI (309) cpu_start: Multicore app[0m
+[0;32mI (1043) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1052) cpu_start: Pro cpu start user code[0m
+[0;32mI (1052) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1052) app_init: Application information:[0m
+[0;32mI (1052) app_init: Project name:     wifi_station[0m
+[0;32mI (1057) app_init: App version:      3dfaced-dirty[0m
+[0;32mI (1061) app_init: Compile time:     Aug 21 2025 17:20:18[0m
+[0;32mI (1066) app_init: ELF file SHA256:  c04bdfb40...[0m
+[0;32mI (1071) app_init: ESP-IDF:          v5.4.2-dirty[0m
+[0;32mI (1075) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1079) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1083) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1087) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1094) heap_init: At 3FCA3CA0 len 00045A70 (278 KiB): RAM[0m
+[0;32mI (1099) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1104) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1109) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (1115) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1122) spi_flash: detected chip: generic[0m
+[0;32mI (1125) spi_flash: flash io: dio[0m
+[0;32mI (1129) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1135) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1141) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (1165) coexist: coexist rom version e7ae62f[0m
+[0;32mI (1166) main_task: Started on CPU0[0m
+[0;32mI (1176) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1176) main_task: Calling app_main()[0m
+[0;32mI (1186) uart: queue free spaces: 30[0m
+[0;32mI (1186) BLE: NVS SSID: 1623[0m
+[0;32mI (1186) BLE: NVS PWD: 361717[0m
+[0;32mI (1186) BLE: NVS CH: 4[0m
+[0;32mI (1186) BLE: NVS SP: 6[0m
+[0;32mI (1186) BLE_INIT: BT controller compile version [6cfabcd][0m
+[0;32mI (1196) BLE_LOG: Succeeded to initialize upper layer task log![0m
+[0;32mI (1196) gpio: GPIO[3]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1206) BLE_LOG: Succeeded to initialize timestamp synchronizer![0m
+[0;32mI (1216) BLE_LOG: Succeeded to initialize BLE log SPI output interface![0m
+[0;32mI (1226) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (1226) BLE_INIT: Bluetooth MAC: 30:ed:a0:bd:57:5e[0m
+[0;32mI (1236) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (1276) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1346) BLE: nimble host task start[0m
+[0;32mI (1346) BLE: reg svc 0x1800 handle=1[0m
+[0;32mI (1356) BLE: reg chr 0x2a00 def=2 val=3[0m
+[0;32mI (1356) BLE: reg chr 0x2a01 def=4 val=5[0m
+[0;32mI (1356) BLE: reg svc 0x1801 handle=6[0m
+[0;32mI (1356) BLE: reg chr 0x2a05 def=7 val=8[0m
+[0;32mI (1356) BLE: reg chr 0x2b3a def=10 val=11[0m
+[0;32mI (1366) BLE: reg chr 0x2b29 def=12 val=13[0m
+[0;32mI (1366) BLE: reg svc 0100bc9a-7856-3412-f0de-bc9a78563412 handle=14[0m
+[0;32mI (1376) BLE: reg chr 00002211-eedd-ccbb-aa99-887766554433 def=15 val=16[0m
+[0;32mI (1386) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (1386) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1396) NimBLE: disc_mode=2[0m
+[0;32mI (1396) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (1406) NimBLE: [0m
+
+[0;32mI (1406) BLE: Advertising as "FAL_A0BD575E"[0m
+[0;32mI (1346) main_task: Returned from app_main()[0m
+[0;32mI (9096) BLE: connect ok; status=0[0m
+[0;32mI (9806) BLE: subscribe: handle=16 cur_notif=1 cur_ind=0[0m
+[0;32mI (9806) BLE: start security on subscribe[0m
+[0;32mI (12206) NimBLE: GAP procedure initiated: stop advertising.[0m
+
+[0;32mI (12206) BLE: enc change: status=0[0m
+[0;32mI (13076) BLE: subscribe: handle=8 cur_notif=0 cur_ind=1[0m
+[0;32mI (15386) BLE: subscribe: handle=16 cur_notif=0 cur_ind=0[0m
+[0;32mI (15866) BLE: RX(3): BYE[0m
+[0;32mI (15866) NimBLE: GATT procedure initiated: notify; [0m
+[0;32mI (15866) NimBLE: att_handle=16[0m
+
+[0;32mI (16366) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19[0m
+
+[0;32mI (16376) BLE: subscribe: handle=8 cur_notif=0 cur_ind=0[0m
+[0;32mI (16376) BLE: disconnect; reason=534[0m
+[0;32mI (19376) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (19376) NimBLE: disc_mode=2[0m
+[0;32mI (19376) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=320 adv_itvl_max=352[0m
+[0;32mI (19376) NimBLE: [0m
+
+[0;32mI (19386) BLE: Advertising as "FAL_A0BD575E"[0m

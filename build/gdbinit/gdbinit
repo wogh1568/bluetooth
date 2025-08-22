@@ -1,0 +1,2 @@
+source C:/Espressif/frameworks/esp-idf-v5.4.2/examples/bluetooth/SF_PM/build/gdbinit/symbols
+source C:/Espressif/frameworks/esp-idf-v5.4.2/examples/bluetooth/SF_PM/build/gdbinit/connect
