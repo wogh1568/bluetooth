@@ -1,0 +1,16 @@
+[0;33m--- Warning: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM3 instead...[0m
+[0;33m--- esp-idf-monitor 1.6.2 on \\.\COM3 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40375f99: panic_abort at C:/Espressif/frameworks/esp-idf-v5.4.2/components/esp_system/panic.c:469
+--- 0x40383785: esp_system_abort at C:/Espressif/frameworks/esp-idf-v5.4.2/components/esp_system/port/esp_system_chip.c:87
+--- 0x4038464a: vApplicationStackOverflowHook at C:/Espressif/frameworks/esp-idf-v5.4.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:563
+--- 0x403857f7: vTaskSwitchContext at C:/Espressif/frameworks/esp-idf-v5.4.2/components/freertos/FreeRTOS-Kernel/tasks.c:3689
+--- 0x40384710: _frxt_dispatch at C:/Espressif/frameworks/esp-idf-v5.4.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/portasm.S:451
+--- 0x40384706: _frxt_int_exit at C:/Espressif/frameworks/esp-idf-v5.4.2/components/freertos/FreeRTOS-Kernel/portable/xtensa/portasm.S:246
+--- 0x4205373b: __sprint_r at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:429
+---  (inlined by) __sprint_r at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+[0m
+[0;33m--- 0x40375ed9: esp_restart_noos at C:/Espressif/frameworks/esp-idf-v5.4.2/components/esp_system/port/soc/esp32s3/system_internal.c:162
+[0m
+[0m

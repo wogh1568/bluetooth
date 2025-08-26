@@ -24,7 +24,7 @@
 void ble_store_config_init(void);
 
 static const char *TAG = "BLE";
-
+#define FIXED_PASSKEY 123456
 /* ====== UUIDs (Flutter와 동일) ======
  * Flutter:
  *   Service:  0100bc9a-7856-3412-f0de-bc9a78563412
@@ -301,14 +301,24 @@ static int on_gap_event(struct ble_gap_event *ev, void *arg)
     case BLE_GAP_EVENT_CONNECT:
         s_bonding_started = false;
         ESP_LOGI(TAG, "connect %s; status=%d",
-                ev->connect.status==0 ? "ok":"fail", ev->connect.status);
+                 ev->connect.status == 0 ? "ok" : "fail",
+                 ev->connect.status);
+        struct ble_gap_conn_desc desc;
         if (ev->connect.status == 0) {
             s_conn_handle = ev->connect.conn_handle;
-        } else {
-            restart_adv_later(3000);
-        }
+            if (ble_gap_conn_find(s_conn_handle, &desc) == 0) {
+                    if (!desc.sec_state.encrypted) {
+                        ESP_LOGI(TAG, "start");
+                        ble_gap_security_initiate(s_conn_handle);
+                    } else {
+                        ESP_LOGI(TAG, "already bonded → sent AUTHOK immediately");
+                    }
+            }
+            } else {
+                // 연결 실패 → 광고 재시작
+                restart_adv_later(3000);
+            }       
         return 0;
-
 
     case BLE_GAP_EVENT_DISCONNECT:
         ESP_LOGI(TAG, "disconnect; reason=%d", ev->disconnect.reason);
@@ -322,26 +332,31 @@ static int on_gap_event(struct ble_gap_event *ev, void *arg)
         restart_adv_later(3000);
         return 0;
 
-    case BLE_GAP_EVENT_SUBSCRIBE:
+    case BLE_GAP_EVENT_SUBSCRIBE: {
         ESP_LOGI(TAG, "subscribe: handle=%d cur_notif=%d cur_ind=%d",
-                ev->subscribe.attr_handle, ev->subscribe.cur_notify, ev->subscribe.cur_indicate);
-
-        if (ev->subscribe.cur_notify) {
-            // ✅ Notify 구독 시작할 때만 본딩 시도
-            struct ble_gap_conn_desc desc;
-            if (ble_gap_conn_find(s_conn_handle, &desc) == 0) {
-                if (!desc.sec_state.encrypted) {
-                    ESP_LOGI(TAG, "start security on subscribe");
-                    ble_gap_security_initiate(s_conn_handle);
-                } else {
-                    ESP_LOGI(TAG, "already bonded, skip security_initiate");
-                }
-            }
-        }
+                 ev->subscribe.attr_handle,
+                 ev->subscribe.cur_notify,
+                 ev->subscribe.cur_indicate);
+            // ✅ Notify 구독 시작 → 본딩/암호화 확인
+            //struct ble_gap_conn_desc desc;
+            // if (ble_gap_conn_find(s_conn_handle, &desc) == 0) {
+            //     if (!desc.sec_state.encrypted) {
+            //         ESP_LOGI(TAG, "start security on subscribe");
+            //         ble_gap_security_initiate(s_conn_handle);
+            //     } else {
+            //         ESP_LOGI(TAG, "already bonded → sent AUTHOK immediately");
+            //     }
+            // }
         return 0;
+    }
 
     case BLE_GAP_EVENT_ENC_CHANGE:
         ESP_LOGI(TAG, "enc change: status=%d", ev->enc_change.status);
+        if (ev->enc_change.status == 0) {
+            ESP_LOGI(TAG, "encryption ok → sent AUTHOK");
+        } else {
+            ESP_LOGW(TAG, "Encryption failed (status=%d)", ev->enc_change.status);
+        }
         return 0;
 
     case BLE_GAP_EVENT_PASSKEY_ACTION: {
@@ -355,6 +370,7 @@ static int on_gap_event(struct ble_gap_event *ev, void *arg)
         return 0;
     }
 }
+
 
 /* ====== RX Write 콜백 ====== */
 static int on_rx_write(uint16_t conn_handle, uint16_t attr_handle,
@@ -463,7 +479,7 @@ static void host_cfg_init(void)
     ble_hs_cfg.gatts_register_cb  = gatt_register_cb;
     // 보안(Just Works + Bonding + LE SC)
     ble_hs_cfg.sm_io_cap          = BLE_HS_IO_NO_INPUT_OUTPUT;
-    ble_hs_cfg.sm_bonding         = 1; // 본딩이 필요없다면 0으로 꺼도 됨
+    ble_hs_cfg.sm_bonding         = 0; // 본딩이 필요없다면 0으로 꺼도 됨
     ble_hs_cfg.sm_mitm            = 0;
     ble_hs_cfg.sm_sc              = 1;
     ble_hs_cfg.sm_our_key_dist   |= BLE_SM_PAIR_KEY_DIST_ENC | BLE_SM_PAIR_KEY_DIST_ID;
