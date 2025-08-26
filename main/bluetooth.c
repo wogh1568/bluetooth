@@ -24,7 +24,7 @@
 void ble_store_config_init(void);
 
 static const char *TAG = "BLE";
-
+#define FIXED_PASSKEY 123456
 /* ====== UUIDs (Flutter와 동일) ======
  * Flutter:
  *   Service:  0100bc9a-7856-3412-f0de-bc9a78563412
@@ -401,6 +401,31 @@ static int on_gap_event(struct ble_gap_event *ev, void *arg)
     case BLE_GAP_EVENT_PASSKEY_ACTION: {
         struct ble_sm_io io = {0};
         io.action = ev->passkey.params.action;
+
+        switch (io.action) {
+        case BLE_SM_IOACT_DISP:
+            // ESP32가 “표시”할 PIN을 고정값으로 제공 → 폰이 123456 입력
+            io.passkey = FIXED_PASSKEY;
+            ESP_LOGI(TAG, "PASSKEY (display to user): %06u", (unsigned)io.passkey);
+            break;
+
+        case BLE_SM_IOACT_INPUT:
+            // DISPLAY_ONLY면 보통 오지 않지만, 혹시 호스트 조합상 INPUT이 오면 동일 값 입력
+            io.passkey = FIXED_PASSKEY;
+            ESP_LOGI(TAG, "PASSKEY (input by device): %06u", (unsigned)io.passkey);
+            break;
+
+        case BLE_SM_IOACT_NUMCMP:
+            // 숫자비교 방식이 오면 자동 승인(원치 않으면 0으로 거절)
+            io.numcmp_accept = 1;
+            ESP_LOGI(TAG, "NUMCMP: auto-accept");
+            break;
+
+        default:
+            ESP_LOGW(TAG, "Unknown passkey action=%d", io.action);
+            break;
+        }
+
         ble_sm_inject_io(ev->passkey.conn_handle, &io);
         return 0;
     }
@@ -517,9 +542,9 @@ static void host_cfg_init(void)
     ble_hs_cfg.sync_cb            = on_sync;
     ble_hs_cfg.gatts_register_cb  = gatt_register_cb;
     // 보안(Just Works + Bonding + LE SC)
-    ble_hs_cfg.sm_io_cap          = BLE_HS_IO_NO_INPUT_OUTPUT;
+    ble_hs_cfg.sm_io_cap          = BLE_HS_IO_DISPLAY_ONLY;
     ble_hs_cfg.sm_bonding         = 1; // 본딩이 필요없다면 0으로 꺼도 됨
-    ble_hs_cfg.sm_mitm            = 0;
+    ble_hs_cfg.sm_mitm            = 1;
     ble_hs_cfg.sm_sc              = 1;
     ble_hs_cfg.sm_our_key_dist   |= BLE_SM_PAIR_KEY_DIST_ENC | BLE_SM_PAIR_KEY_DIST_ID;
     ble_hs_cfg.sm_their_key_dist |= BLE_SM_PAIR_KEY_DIST_ENC | BLE_SM_PAIR_KEY_DIST_ID;
