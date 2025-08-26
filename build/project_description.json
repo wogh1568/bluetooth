@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "wifi_station",
-    "project_version":    "1c99977-dirty",
+    "project_version":    "798c305-dirty",
     "project_path":       "C:/Espressif/frameworks/esp-idf-v5.4.2/examples/bluetooth/SF_PM",
     "idf_path":           "C:/Espressif/frameworks/esp-idf-v5.4.2",
     "build_dir":          "C:/Espressif/frameworks/esp-idf-v5.4.2/examples/bluetooth/SF_PM/build",
