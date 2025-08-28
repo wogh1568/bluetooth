@@ -377,7 +377,7 @@ static int on_gap_event(struct ble_gap_event *ev, void *arg)
                     ble_gap_security_initiate(s_conn_handle);
                 } else {
                     // CCCD on + 이미 암호화 → 살짝 지연 후 AUTHOK
-                    send_authok_delayed(30);
+                    send_authok_delayed(100);
                 }
             }
         }
@@ -388,7 +388,7 @@ static int on_gap_event(struct ble_gap_event *ev, void *arg)
         ESP_LOGI(TAG, "enc change: status=%d", ev->enc_change.status);
         if (ev->enc_change.status == 0) {
             // 암호화 완료 직후에도 한 번 더 시도 (중복은 앱에서 무시해도 OK)
-            send_authok_delayed(10);
+            send_authok_delayed(100);
         }
         if (ev->enc_change.status != 0) {
         ESP_LOGW(TAG, "enc failed=%d (pairing canceled/failed)", ev->enc_change.status);
